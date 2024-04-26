@@ -1,0 +1,18 @@
+{
+  "navbar": {
+    "Export": "Export",
+    "Upload": "Upload",
+    "more": {
+      "title": "More",
+      "about": "About",
+      "terms": "Terms",
+      "privacy": "Privacy"
+    },
+    "login": "Login",
+    "profile": {
+      "litematica": "My litematica",
+      "settings": "Settings",
+      "logout": "Logout"
+    }
+  }
+}

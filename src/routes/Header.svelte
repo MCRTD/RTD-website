@@ -1,5 +1,6 @@
 <script>
 	import rtd from '$lib/images/rtd.svg';
+	import { _ } from 'svelte-i18n'
 </script>
 
 <header>
@@ -8,15 +9,15 @@
 			<a class="text-xl px-6" href="/">RTD</a>
 			<img src={rtd} alt="Redstone Database logo" class="w-10 h-10" />
 			<ul class="menu px-1 menu-horizontal">
-				<li><a href="/">Export</a></li>
-				<li><a href="/">Upload</a></li>
+				<li><a href="/">{$_('navbar.Export')}</a></li>
+				<li><a href="/">{$_('navbar.Upload')}</a></li>
 				<li>
 					<details>
-						<summary> more </summary>
+						<summary> {$_('navbar.more.title')} </summary>
 						<ul class="p-2 bg-base-100 rounded-t-none">
-							<li><a href="/">about</a></li>
-							<li><a href="/">terms</a></li>
-							<li><a href="/">privacy</a></li>
+							<li><a href="/">{$_('navbar.more.about')}</a></li>
+							<li><a href="/">{$_('navbar.more.terms')}</a></li>
+							<li><a href="/">{$_('navbar.more.privacy')}</a></li>
 						</ul>
 					</details>
 				</li>
@@ -33,14 +34,14 @@
 							/>
 						</div>
 					</div> -->
-					<p>login</p>
+					<p>{$_('navbar.login')}</p>
 				</div>
 				<ul
 					class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
 				>
-					<li><a href="/" class="justify-between">My litematica</a></li>
-					<li><a href="/">Settings</a></li>
-					<li><a href="/">Logout</a></li>
+					<li><a href="/" class="justify-between">{$_('navbar.profile.litematica')}</a></li>
+					<li><a href="/">{$_('navbar.profile.settings')}</a></li>
+					<li><a href="/">{$_('navbar.profile.logout')}</a></li>
 				</ul>
 			</div>
 		</div>
