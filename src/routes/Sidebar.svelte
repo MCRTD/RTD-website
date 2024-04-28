@@ -1,13 +1,23 @@
-<script>
+<script lang="ts">
+
     import { _ } from 'svelte-i18n';
+
+    import { queryParam } from 'sveltekit-search-params';
+
+    const sort = queryParam('sort');
+
+    function setSort(newSort: string) {
+        sort.set(newSort);
+    }
 </script>
 
 <div class="sidebar">
     <div class="sort">
-        <button class="btn btn-outline btn-secondary">最新上傳</button>
-        <button class="btn btn-outline btn-secondary">最多投票</button>
-        <button class="btn btn-outline btn-secondary">最多下載</button>
+        <button class="btn" class:btn-outline={$sort !== 'newest'} class:btn-secondary={$sort === 'newest'} on:click={() => setSort('newest')}>最新上傳</button>
+        <button class="btn" class:btn-outline={$sort !== 'mostvote'} class:btn-secondary={$sort === 'mostvote'} on:click={() => setSort('mostvote')}>最多投票</button>
+        <button class="btn" class:btn-outline={$sort !== 'mostdownload'} class:btn-secondary={$sort === 'mostdownload'} on:click={() => setSort('mostdownload')}>最多下載</button>
     </div>
+    <h3>分類</h3>
     <div class="tags">
         <button class="btn">Normal</button>
         <button class="btn">Normal</button>
@@ -20,17 +30,27 @@
 
 <style>
     .sidebar {
-        width: 200px;
+        --sidebar-width: 200px;
+        width: var(--sidebar-width);
         overflow-y: scroll;
+        padding: 2px;
+    }
+    .sidebar > h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
     .sort {
+        max-width: calc(var(--sidebar-width) - 2rem);
         display: flex;
         flex-direction: column;
         gap: 6px;
     }
     .tags {
+        max-width: calc(var(--sidebar-width) - 2rem);
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 6px;
     }
 </style>
