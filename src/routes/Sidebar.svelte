@@ -4,7 +4,11 @@
 
     import { queryParam } from 'sveltekit-search-params';
 
-    const sort = queryParam('sort');
+    const sort = queryParam('sort', {
+        defaultValue: 'newest',
+        encode: (value) => value,
+        decode: (value) => value,
+    });
 
     function setSort(newSort: string) {
         sort.set(newSort);
