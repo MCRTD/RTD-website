@@ -19,8 +19,19 @@
 			<button class="btn btn-accent join-item">Search</button>
 		</div>
 		<div class="main flex flex-row flex-grow mt-4">
-			<div class="w-[300px] flex-grow">
-				<h1>探索</h1>
+			<div class="w-[300px] flex-grow grid xl:grid-cols-2 grid-cols-1 gap-2 ">
+				<div>
+                    <h2 class="text-2xl">test text</h2>
+                </div>
+				<div>
+                    <h2 class="text-2xl">test text</h2>
+                </div>
+				<div>
+                    <h2 class="text-2xl">test text</h2>
+                </div>
+				<div>
+                    <h2 class="text-2xl">test text</h2>
+                </div>
 			</div>
 			<div class="infocards w-[280px] flex-shrink">
 				<p class="text-lg">這裡是廣告</p>
