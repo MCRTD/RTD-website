@@ -15,7 +15,7 @@
     }
 </script>
 
-<div class="sidebar">
+<div class="sidebar scrollbar-thin overflow-y-scroll">
     <div class="sort">
         <button class="btn" class:btn-outline={$sort !== 'newest'} class:btn-accent={$sort === 'newest'} on:click={() => setSort('newest')}>最新上傳</button>
         <button class="btn" class:btn-outline={$sort !== 'mostvote'} class:btn-accent={$sort === 'mostvote'} on:click={() => setSort('mostvote')}>最多投票</button>

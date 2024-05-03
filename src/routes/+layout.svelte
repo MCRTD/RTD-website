@@ -4,7 +4,7 @@
 	import './styles.css';
 </script>
 
-<div class="app">
+<div class="app scrollbar-thumb-red-600 scrollbar-track-[#A0153E]">
 	<Header />
 
 	<main>
