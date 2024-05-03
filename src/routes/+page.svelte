@@ -10,7 +10,7 @@
 
 <section>
 	<Sidebar />
-	<div class="mainshow px-4">
+	<div class="mainshow px-4" data-theme="mytheme">
 		<div class="join">
 			<input
 				type="text"
@@ -22,7 +22,7 @@
 		<div class="main flex flex-row flex-grow mt-4">
 			<div class="w-[300px] flex-grow">
 				<div
-					class="flex items-center bg-[#500E38] radio-sm p-2 rounded-md mb-4 mt-4 flex-col"
+					class="flex items-center bg-accent text-[oklch(var(--ac))] radio-sm p-2 rounded-md mb-4 mt-4 flex-col"
 				>
 					<h1 class="text-4xl">探索</h1>
 				</div>

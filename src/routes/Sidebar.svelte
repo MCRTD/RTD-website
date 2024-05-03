@@ -17,9 +17,9 @@
 
 <div class="sidebar">
     <div class="sort">
-        <button class="btn" class:btn-outline={$sort !== 'newest'} class:btn-secondary={$sort === 'newest'} on:click={() => setSort('newest')}>最新上傳</button>
-        <button class="btn" class:btn-outline={$sort !== 'mostvote'} class:btn-secondary={$sort === 'mostvote'} on:click={() => setSort('mostvote')}>最多投票</button>
-        <button class="btn" class:btn-outline={$sort !== 'mostdownload'} class:btn-secondary={$sort === 'mostdownload'} on:click={() => setSort('mostdownload')}>最多下載</button>
+        <button class="btn" class:btn-outline={$sort !== 'newest'} class:btn-accent={$sort === 'newest'} on:click={() => setSort('newest')}>最新上傳</button>
+        <button class="btn" class:btn-outline={$sort !== 'mostvote'} class:btn-accent={$sort === 'mostvote'} on:click={() => setSort('mostvote')}>最多投票</button>
+        <button class="btn" class:btn-outline={$sort !== 'mostdownload'} class:btn-accent={$sort === 'mostdownload'} on:click={() => setSort('mostdownload')}>最多下載</button>
     </div>
     <h3>分類</h3>
     <div class="tags">
