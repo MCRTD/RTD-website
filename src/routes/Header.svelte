@@ -1,5 +1,6 @@
 <script>
-	import rtd from '$lib/images/rtd.svg';
+	import rtd from '$lib/images/rtd.svg'
+    import ThemeSelect from '$lib/theme.svelte'
 	import { _ } from 'svelte-i18n'
 </script>
 
@@ -9,9 +10,9 @@
 			<a class="text-xl px-6" href="/">RTD</a>
 			<img src={rtd} alt="Redstone Database logo" class="w-10 h-10" />
 			<ul class="menu px-1 menu-horizontal">
-				<li><a href="/">{$_('navbar.Export')}</a></li>
-				<li><a href="/">{$_('navbar.Upload')}</a></li>
-				<li>
+				<li class="justify-center"><a href="/">{$_('navbar.Export')}</a></li>
+				<li class="justify-center"><a href="/">{$_('navbar.Upload')}</a></li>
+				<li class="justify-center">
 					<details>
 						<summary> {$_('navbar.more.title')} </summary>
 						<ul class="p-2 bg-base-100 rounded-t-none">
@@ -21,6 +22,9 @@
 						</ul>
 					</details>
 				</li>
+                <li>
+                    <ThemeSelect />
+                </li>
 			</ul>
 		</div>
 		<div class="flex-none gap-2">
