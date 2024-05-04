@@ -22,12 +22,10 @@
 						</ul>
 					</details>
 				</li>
-				<li>
-					<ThemeSelect />
-				</li>
 			</ul>
 		</div>
 		<div class="flex-none gap-2">
+            <ThemeSelect />
 			<div class="dropdown dropdown-end">
 				<div tabindex="0" role="button" class="btn btn-outline btn-primary">
 					<!-- <div class="avatar">

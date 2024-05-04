@@ -6,7 +6,7 @@
 	export let vote: number = 0;
 </script>
 
-<div class="flex flex-col items-center bg-sky-800 rounded-lg p-4 text-white">
+<div class="flex flex-col items-center bg-[var(--bg-200)] rounded-lg p-4 text-white">
 	<div class="flex-1">
 		<img src={image} alt="Litematica" class="object-cover max-h-60" />
 	</div>
