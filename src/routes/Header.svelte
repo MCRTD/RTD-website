@@ -4,7 +4,7 @@
 	import { _ } from 'svelte-i18n';
 </script>
 
-<header class="sticky top-0 z-50">
+<header class="sticky top-0 z-50 mb-2">
 	<div class="navbar bg-base-100">
 		<div class="flex-1">
 			<a class="text-xl px-6" href="/">RTD</a>
@@ -15,7 +15,7 @@
 				<li class="justify-center">
 					<details>
 						<summary> {$_('navbar.more.title')} </summary>
-						<ul class="p-2 bg-base-100 rounded-t-none">
+						<ul class="w-40 p-2 bg-base-100 rounded-t-none">
 							<li><a href="/">{$_('navbar.more.about')}</a></li>
 							<li><a href="/">{$_('navbar.more.terms')}</a></li>
 							<li><a href="/">{$_('navbar.more.privacy')}</a></li>
