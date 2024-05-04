@@ -147,7 +147,9 @@
 			</button>
 		{:else}
 			<div class="keyboard">
-				<button data-key="enter" class:selected={submittable} disabled={!submittable}>enter</button>
+				<button data-key="enter" class:selected={submittable} disabled={!submittable}
+					>enter</button
+				>
 
 				<button
 					on:click|preventDefault={update}

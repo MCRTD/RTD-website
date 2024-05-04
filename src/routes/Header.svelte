@@ -1,10 +1,10 @@
 <script>
-	import rtd from '$lib/images/rtd.svg'
-    import ThemeSelect from '$lib/theme.svelte'
-	import { _ } from 'svelte-i18n'
+	import rtd from '$lib/images/rtd.svg';
+	import ThemeSelect from '$lib/theme.svelte';
+	import { _ } from 'svelte-i18n';
 </script>
 
-<header>
+<header class="sticky top-0 z-50">
 	<div class="navbar bg-base-100">
 		<div class="flex-1">
 			<a class="text-xl px-6" href="/">RTD</a>
@@ -22,9 +22,9 @@
 						</ul>
 					</details>
 				</li>
-                <li>
-                    <ThemeSelect />
-                </li>
+				<li>
+					<ThemeSelect />
+				</li>
 			</ul>
 		</div>
 		<div class="flex-none gap-2">
@@ -43,7 +43,9 @@
 				<ul
 					class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
 				>
-					<li><a href="/" class="justify-between">{$_('navbar.profile.litematica')}</a></li>
+					<li>
+						<a href="/" class="justify-between">{$_('navbar.profile.litematica')}</a>
+					</li>
 					<li><a href="/">{$_('navbar.profile.settings')}</a></li>
 					<li><a href="/">{$_('navbar.profile.logout')}</a></li>
 				</ul>
