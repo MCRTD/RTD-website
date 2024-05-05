@@ -10,7 +10,7 @@
 	});
 </script>
 
-<div class="app scrollbar-thumb-red-600 scrollbar-track-[#A0153E]">
+<div class="app">
 	<Header />
 
 	<main>
@@ -23,5 +23,6 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+		overflow-x: hidden;
 	}
 </style>

@@ -7,7 +7,6 @@
 	font-family: var(--font-body);
 }
 
-
 .glow {
 	transition-duration: 0.3s;
 	transition-property: box-shadow;

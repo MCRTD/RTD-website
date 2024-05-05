@@ -1,9 +1,9 @@
 <div class="card w-full max-w-sm shadow-2xl bg-base-100">
 	<form class="card-body">
 		<div class="form-control">
-            <label class="label" for="email-input">
-                <span class="label-text">Email</span>
-            </label>
+			<label class="label" for="email-input">
+				<span class="label-text">Email</span>
+			</label>
 			<label class="input input-bordered flex items-center gap-2">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

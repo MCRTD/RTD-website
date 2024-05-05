@@ -25,7 +25,7 @@
 			</ul>
 		</div>
 		<div class="flex-none gap-2">
-            <ThemeSelect />
+			<ThemeSelect />
 			<div class="dropdown dropdown-end">
 				<div tabindex="0" role="button" class="btn btn-outline btn-primary">
 					<!-- <div class="avatar">
