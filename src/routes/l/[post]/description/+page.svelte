@@ -1,23 +1,24 @@
 <script lang="ts">
 	import Markdown from 'svelte-exmarkdown';
 	let md = '# Hello world!';
+    import { Canvas } from '@threlte/core'
+    import Scene from './testthree.svelte'
+    import Obj from './testobj.svelte'
 </script>
 
 <div class="bg-[oklch(var(--n))] rounded-xl p-2">
-	<div class="carousel w-full max-h-[600px]">
+	<div class="carousel w-full max-h-[500px]">
 		<div id="item1" class="carousel-item w-full">
 			<!-- svelte-ignore a11y-missing-attribute -->
-			<img
-				src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
-				class="w-full object-scale-down"
-			/>
+            <Canvas>
+                <Scene/>
+            </Canvas>
 		</div>
 		<div id="item2" class="carousel-item w-full">
 			<!-- svelte-ignore a11y-missing-attribute -->
-			<img
-				src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
-				class="w-full object-scale-down"
-			/>
+            <Canvas>
+                <Obj/>
+            </Canvas>
 		</div>
 		<!-- svelte-ignore a11y-missing-attribute -->
 		<div id="item3" class="carousel-item w-full">

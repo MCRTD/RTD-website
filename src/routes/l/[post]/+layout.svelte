@@ -16,7 +16,7 @@
 		<div
 			class="w-80 flex flex-col flex-shrink bg-[oklch(var(--n))] rounded-xl p-4 text-[oklch(var(--nc))]"
 		>
-            <h2 class="text-lg font-bold mb-4">creator</h2>
+			<h2 class="text-lg font-bold mb-4">creator</h2>
 			<div class="flex items-center mb-2">
 				<div class="avatar pr-4">
 					<div class="w-12 rounded-full">
@@ -43,14 +43,21 @@
 					<a href="/u/1">User 1</a>
 				</h2>
 			</div>
-            <h2 class="text-lg font-bold mb-4">server</h2>
-            <div>
+			<h2 class="text-lg font-bold mb-4">server</h2>
+			<div></div>
+			<h2 class="text-lg font-bold mb-4">group</h2>
+			<div></div>
+			<div class="stats stats-vertical bg-[oklch(var(--n))]">
+				<div class="stat">
+					<div class="stat-title">Downloads</div>
+					<div class="stat-value">0</div>
+				</div>
 
-            </div>
-            <h2 class="text-lg font-bold mb-4">group</h2>
-            <div>
-
-            </div>
+				<div class="stat">
+					<div class="stat-title">Vote</div>
+					<div class="stat-value">0</div>
+				</div>
+			</div>
 		</div>
 	</aside>
 </div>
