@@ -17,8 +17,8 @@
 						<summary> {$_('navbar.more.title')} </summary>
 						<ul class="w-40 p-2 bg-base-100 rounded-t-none">
 							<li><a href="/">{$_('navbar.more.about')}</a></li>
-							<li><a href="/">{$_('navbar.more.terms')}</a></li>
-							<li><a href="/">{$_('navbar.more.privacy')}</a></li>
+							<li><a href="/terms">{$_('navbar.more.terms')}</a></li>
+							<li><a href="/privacy">{$_('navbar.more.privacy')}</a></li>
 						</ul>
 					</details>
 				</li>

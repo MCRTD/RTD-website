@@ -21,6 +21,7 @@ export default {
                     "base-100":'#1A1A1A',
                     "--bg-200":'#292929',
                     "--bg-300":'#404040',
+                    "--glow-color":"rgba(236, 240, 241,.3)",
 					'.infocards': {
 						'background-color': '#A0153E !important',
 						color: '#fff !important'
