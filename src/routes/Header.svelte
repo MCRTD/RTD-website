@@ -2,19 +2,21 @@
 	import rtd from '$lib/images/rtd.svg';
 	import ThemeSelect from '$lib/theme.svelte';
 	import { _ } from 'svelte-i18n';
+	import { browser } from '$app/environment'; 
 	let openDropdown: boolean = false;
 
 	function handleClickItem() {
 		openDropdown = false;
 	}
-
-	window.addEventListener('click', function (e: MouseEvent) {
-		document.querySelectorAll('.binddropdown').forEach(function (dropdown) {
-			if (!dropdown.contains(e.target as Node)) {
-				dropdown.open = false;
-			}
+	if (browser) {
+		window.addEventListener('click', function (e: MouseEvent) {
+			document.querySelectorAll('.binddropdown').forEach(function (dropdown) {
+				if (!dropdown.contains(e.target as Node)) {
+					dropdown.open = false;
+				}
+			});
 		});
-	});
+	}
 </script>
 
 <header class="sticky top-0 z-50 mb-2">
