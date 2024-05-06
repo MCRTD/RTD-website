@@ -2,7 +2,7 @@
 	import rtd from '$lib/images/rtd.svg';
 	import ThemeSelect from '$lib/theme.svelte';
 	import { _ } from 'svelte-i18n';
-	import { browser } from '$app/environment'; 
+	import { browser } from '$app/environment';
 	let openDropdown: boolean = false;
 
 	function handleClickItem() {
@@ -26,7 +26,7 @@
 			<img src={rtd} alt="Redstone Database logo" class="w-10 h-10" />
 			<ul class="menu px-1 menu-horizontal">
 				<li class="justify-center"><a href="/">{$_('navbar.Export')}</a></li>
-				<li class="justify-center"><a href="/">{$_('navbar.Upload')}</a></li>
+				<li class="justify-center"><a href="/upload">{$_('navbar.Upload')}</a></li>
 				<li class="justify-center">
 					<details bind:open={openDropdown} class="binddropdown">
 						<summary> {$_('navbar.more.title')} </summary>
