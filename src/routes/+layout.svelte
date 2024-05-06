@@ -24,7 +24,7 @@
 		if (!$navigating) {
 		NProgress.done();
 		}
-	}	
+	}
 </script>
 
 <div class="app">
