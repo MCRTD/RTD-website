@@ -1,7 +1,20 @@
-<script>
+<script lang="ts">
 	import rtd from '$lib/images/rtd.svg';
 	import ThemeSelect from '$lib/theme.svelte';
 	import { _ } from 'svelte-i18n';
+	let openDropdown: boolean = false;
+
+	function handleClickItem() {
+		openDropdown = false;
+	}
+
+	window.addEventListener('click', function (e: MouseEvent) {
+		document.querySelectorAll('.binddropdown').forEach(function (dropdown) {
+			if (!dropdown.contains(e.target as Node)) {
+				dropdown.open = false;
+			}
+		});
+	});
 </script>
 
 <header class="sticky top-0 z-50 mb-2">
@@ -13,12 +26,22 @@
 				<li class="justify-center"><a href="/">{$_('navbar.Export')}</a></li>
 				<li class="justify-center"><a href="/">{$_('navbar.Upload')}</a></li>
 				<li class="justify-center">
-					<details>
+					<details bind:open={openDropdown} class="binddropdown">
 						<summary> {$_('navbar.more.title')} </summary>
 						<ul class="w-40 p-2 bg-base-100 rounded-t-none">
-							<li><a href="/">{$_('navbar.more.about')}</a></li>
-							<li><a href="/terms">{$_('navbar.more.terms')}</a></li>
-							<li><a href="/privacy">{$_('navbar.more.privacy')}</a></li>
+							<li>
+								<a on:click={handleClickItem} href="/">{$_('navbar.more.about')}</a>
+							</li>
+							<li>
+								<a on:click={handleClickItem} href="/terms"
+									>{$_('navbar.more.terms')}</a
+								>
+							</li>
+							<li>
+								<a on:click={handleClickItem} href="/privacy"
+									>{$_('navbar.more.privacy')}</a
+								>
+							</li>
 						</ul>
 					</details>
 				</li>
