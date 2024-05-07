@@ -14,7 +14,7 @@
 	</div>
 	<aside>
 		<div
-			class="w-80 flex flex-col flex-shrink bg-[oklch(var(--n))] rounded-xl p-4 text-[oklch(var(--nc))]"
+			class="w-80 flex flex-col flex-shrink bg-[oklch(var(--n))] rounded-xl p-4 text-[oklch(var(--nc))] mb-4"
 		>
 			<h2 class="text-lg font-bold mb-4">creator</h2>
 			<div class="flex items-center mb-2">
@@ -44,20 +44,27 @@
 				</h2>
 			</div>
 			<h2 class="text-lg font-bold mb-4">server</h2>
-			<div></div>
+			<div>
+                <p>in process...</p>
+            </div>
 			<h2 class="text-lg font-bold mb-4">group</h2>
-			<div></div>
+			<div>
+                <p>in process...</p>
+            </div>
+		</div>
+        <div class="flex flex-col flex-shrink bg-[oklch(var(--n))] rounded-xl p-4 text-[oklch(var(--nc))]">
 			<div class="stats stats-vertical bg-[oklch(var(--n))]">
-				<div class="stat">
+				<div class="stat p-2">
 					<div class="stat-title">Downloads</div>
 					<div class="stat-value">0</div>
 				</div>
 
-				<div class="stat">
+				<div class="stat p-2">
 					<div class="stat-title">Vote</div>
 					<div class="stat-value">0</div>
 				</div>
 			</div>
-		</div>
+            <button class="btn btn-primary w-20 ml-auto">Vote</button>
+        </div>
 	</aside>
 </div>
