@@ -30,7 +30,7 @@
 		<!-- svelte-ignore a11y-missing-attribute -->
 		<div id="item4" class="carousel-item w-full">
 			<img
-				src="https://cdn.discordapp.com/attachments/1105452240292040806/1236626907781402644/Screenshot_2024-05-05-17-14-16-73_090d9ae461b065ca11c329abb9cd0d70.jpg?ex=6638b20e&is=6637608e&hm=17583d82f6ea57b08cf6b8d0769668f32d2fcf2581e72368f7c4366dab924944&"
+				src="https://im.bahamut.com.tw/chatimg%2Faa2b637504f093b18ab7867dab55bf8c.jpeg?alt=media"
 				class="w-full object-scale-down"
 			/>
 		</div>
