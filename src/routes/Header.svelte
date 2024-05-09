@@ -1,21 +1,21 @@
 <script lang="ts">
-	import rtd from '$lib/images/rtd.svg';
-	import ThemeSelect from '$lib/theme.svelte';
-	import { _ } from 'svelte-i18n';
-	import { browser } from '$app/environment';
-	let openDropdown: boolean = false;
+	import rtd from '$lib/images/rtd.svg'
+	import ThemeSelect from '$lib/theme.svelte'
+	import { _ } from 'svelte-i18n'
+	import { browser } from '$app/environment'
+	let openDropdown: boolean = false
 
 	function handleClickItem() {
-		openDropdown = false;
+		openDropdown = false
 	}
 	if (browser) {
 		window.addEventListener('click', function (e: MouseEvent) {
 			document.querySelectorAll('.binddropdown').forEach(function (dropdown) {
 				if (!dropdown.contains(e.target as Node)) {
-					dropdown.open = false;
+					dropdown.open = false
 				}
-			});
-		});
+			})
+		})
 	}
 </script>
 
@@ -35,14 +35,10 @@
 								<a on:click={handleClickItem} href="/">{$_('navbar.more.about')}</a>
 							</li>
 							<li>
-								<a on:click={handleClickItem} href="/terms"
-									>{$_('navbar.more.terms')}</a
-								>
+								<a on:click={handleClickItem} href="/terms">{$_('navbar.more.terms')}</a>
 							</li>
 							<li>
-								<a on:click={handleClickItem} href="/privacy"
-									>{$_('navbar.more.privacy')}</a
-								>
+								<a on:click={handleClickItem} href="/privacy">{$_('navbar.more.privacy')}</a>
 							</li>
 						</ul>
 					</details>

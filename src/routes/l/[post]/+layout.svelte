@@ -1,5 +1,5 @@
 <script>
-	export let data;
+	export let data
 </script>
 
 <div class="mx-auto flex flex-row max-w-7xl gap-4">
@@ -45,14 +45,16 @@
 			</div>
 			<h2 class="text-lg font-bold mb-4">server</h2>
 			<div>
-                <p>in process...</p>
-            </div>
+				<p>in process...</p>
+			</div>
 			<h2 class="text-lg font-bold mb-4">group</h2>
 			<div>
-                <p>in process...</p>
-            </div>
+				<p>in process...</p>
+			</div>
 		</div>
-        <div class="flex flex-col flex-shrink bg-[oklch(var(--n))] rounded-xl p-4 text-[oklch(var(--nc))]">
+		<div
+			class="flex flex-col flex-shrink bg-[oklch(var(--n))] rounded-xl p-4 text-[oklch(var(--nc))]"
+		>
 			<div class="stats stats-vertical bg-[oklch(var(--n))]">
 				<div class="stat p-2">
 					<div class="stat-title">Downloads</div>
@@ -64,7 +66,7 @@
 					<div class="stat-value">0</div>
 				</div>
 			</div>
-            <button class="btn btn-primary w-20 ml-auto">Vote</button>
-        </div>
+			<button class="btn btn-primary w-20 ml-auto">Vote</button>
+		</div>
 	</aside>
 </div>

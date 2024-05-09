@@ -1,6 +1,6 @@
 <script>
-	import Sidebar from './Sidebar.svelte';
-	import Showcard from './showcard.svelte';
+	import Sidebar from './Sidebar.svelte'
+	import Showcard from './showcard.svelte'
 </script>
 
 <svelte:head>

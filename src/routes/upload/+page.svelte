@@ -1,13 +1,13 @@
 <script lang="ts">
-	import Markdown from 'svelte-exmarkdown';
-	let md = '';
-    let agreen = false
-	let cansubmit = (aagreen:Boolean) => {
-        if (aagreen) {
-            return true
-        }
-        return false
-    }
+	import Markdown from 'svelte-exmarkdown'
+	let md = ''
+	let agreen = false
+	let cansubmit = (aagreen: Boolean) => {
+		if (aagreen) {
+			return true
+		}
+		return false
+	}
 </script>
 
 <div class="hero min-h-screen bg-base-200">
@@ -32,8 +32,7 @@
 						>詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細</span
 					>
 				</div>
-				<textarea class="textarea textarea-primary" placeholder="Info" bind:value={md}
-				></textarea>
+				<textarea class="textarea textarea-primary" placeholder="Info" bind:value={md}></textarea>
 				<div class="label">
 					<span class="label-text"
 						>詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細詳細</span

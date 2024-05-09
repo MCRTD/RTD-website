@@ -1,5 +1,5 @@
 <script>
-	import { base } from '$app/paths';
+	import { base } from '$app/paths'
 </script>
 
 <div class="container mx-auto px-4 py-4">

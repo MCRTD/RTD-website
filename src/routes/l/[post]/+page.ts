@@ -1,12 +1,12 @@
-import { error, redirect } from '@sveltejs/kit';
-import type { PageLoad } from './$types';
+import { error, redirect } from '@sveltejs/kit'
+import type { PageLoad } from './$types'
 
 export const load: PageLoad = ({ url }) => {
-	console.log(url.pathname);
+	console.log(url.pathname)
 
 	if (url.pathname.split('/')[1] === 'l') {
-		redirect(302, '/l/' + url.pathname.split('/')[2] + '/description');
+		redirect(302, '/l/' + url.pathname.split('/')[2] + '/description')
 	}
 
-	error(404, 'Not found');
-};
+	error(404, 'Not found')
+}

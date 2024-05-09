@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-	export let ID: number = 0;
-	export let image: string = '';
-	export let tags: string[] = [];
-	export let author: string[] = [];
-	export let download: number = 0;
-	export let vote: number = 0;
+	import { goto } from '$app/navigation'
+	export let ID: number = 0
+	export let image: string = ''
+	export let tags: string[] = []
+	export let author: string[] = []
+	export let download: number = 0
+	export let vote: number = 0
 </script>
 
 <div

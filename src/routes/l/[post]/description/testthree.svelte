@@ -1,10 +1,10 @@
 <script>
-	import { T, useThrelte } from '@threlte/core';
-	import { OrbitControls } from '@threlte/extras';
+	import { T, useThrelte } from '@threlte/core'
+	import { OrbitControls } from '@threlte/extras'
 </script>
 
 <T.PerspectiveCamera makeDefault position={[0, 0, 25]} lookAt.y={0}>
-	<OrbitControls enableZoom={true}/>
+	<OrbitControls enableZoom={true} />
 </T.PerspectiveCamera>
 
 <T.DirectionalLight position={[3, 10, 10]} />
@@ -14,7 +14,7 @@
 	{#each ['red', 'green', 'blue'] as color, i}
 		<T.Group
 			on:create={({ ref }) => {
-				lod.addLevel(ref, i * 75);
+				lod.addLevel(ref, i * 75)
 			}}
 		>
 			<T.Mesh>

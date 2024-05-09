@@ -1,16 +1,16 @@
 <script lang="ts">
-	import { _ } from 'svelte-i18n';
+	import { _ } from 'svelte-i18n'
 
-	import { queryParam } from 'sveltekit-search-params';
+	import { queryParam } from 'sveltekit-search-params'
 
 	const sort = queryParam('sort', {
 		defaultValue: 'newest',
 		encode: (value) => value,
 		decode: (value) => value
-	});
+	})
 
 	function setSort(newSort: string) {
-		sort.set(newSort);
+		sort.set(newSort)
 	}
 </script>
 
