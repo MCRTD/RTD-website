@@ -1,3 +1,17 @@
-// since there's no dynamic data here, we can prerender
-// it so that it gets served as a static asset in production
-export const prerender = true
+import servername from '$lib/data'
+
+export const load = async () => {
+	const getposts = async () => {
+		try {
+			const data = await fetch(servername + '/api/litematica')
+			const json = await data.json()
+			return json
+		} catch (e) {
+			console.error(e)
+		}
+	}
+
+	return {
+		posts: getposts()
+	}
+}

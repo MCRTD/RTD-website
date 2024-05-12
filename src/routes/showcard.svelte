@@ -4,8 +4,9 @@
 	export let image: string = ''
 	export let tags: string[] = []
 	export let author: string[] = []
-	export let download: number = 0
+	export let download: number[] = []
 	export let vote: number = 0
+  var newdownload = download.reduce((acc, curr) => acc + curr, 0)
 </script>
 
 <div
@@ -28,7 +29,7 @@
 		<p>Author: {author.join(', ')}</p>
 	</div>
 	<div class="w-full">
-		<p>Download: {download}</p>
+		<p>Download: {newdownload}</p>
 	</div>
 	<div class="w-full">
 		<p>Vote: {vote}</p>

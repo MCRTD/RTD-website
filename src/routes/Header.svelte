@@ -12,7 +12,7 @@
 		window.addEventListener('click', function (e: MouseEvent) {
 			document.querySelectorAll('.binddropdown').forEach(function (dropdown) {
 				if (!dropdown.contains(e.target as Node)) {
-					dropdown.open = false
+					(dropdown as HTMLDetailsElement).open = false;
 				}
 			})
 		})

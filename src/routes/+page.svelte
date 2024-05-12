@@ -1,6 +1,9 @@
 <script>
 	import Sidebar from './Sidebar.svelte'
 	import Showcard from './showcard.svelte'
+
+	export let data
+	const { posts } = data
 </script>
 
 <svelte:head>
@@ -26,17 +29,25 @@
 				>
 					<h1 class="text-4xl">探索</h1>
 				</div>
-				<div class="grid xl:grid-cols-2 grid-cols-1 gap-2">
-					{#each Array(10) as _, i}
-						<div>
-							<Showcard
-								image="https://cdn.discordapp.com/attachments/1105452240292040806/1236493511369691177/Screenshot_20240430-180736.jpg?ex=663835d2&is=6636e452&hm=c66fc3aef2ce1ec6f798250f64f6bc8b7de8c083dd0850feecea3b396bf29600&"
-								tags={['wow', '123']}
-								ID={i}
-							/>
-						</div>
-					{/each}
-				</div>
+				{#await posts then value}
+					<div class="grid xl:grid-cols-2 grid-cols-1 gap-2">
+						{#each value.servers as litematica, i}
+							<div>
+								<Showcard
+									image="https://cdn.discordapp.com/attachments/1105452240292040806/1236493511369691177/Screenshot_20240430-180736.jpg?ex=663835d2&is=6636e452&hm=c66fc3aef2ce1ec6f798250f64f6bc8b7de8c083dd0850feecea3b396bf29600&"
+									tags={litematica.Tags.split(',')}
+									ID={litematica.ID}
+                  vote={litematica.vote}
+                  author={litematica.Creators.map((/** @type {{ Username: string; }} */ creator) => creator.Username)}
+                  download={litematica.Files.map((/** @type {{ DownloadCount: number; }} */ file) => file.DownloadCount)}
+								/>
+							</div>
+						{/each}
+					</div>
+          {:catch error}
+          <p>{error.message}</p>
+
+				{/await}
 			</div>
 			<div class="w-[280px] flex-shrink">
 				<div class="infocards">
