@@ -1,8 +1,6 @@
 <script lang='ts'>
 	export let data
-
   var downloads = data.postdata.Files.map((file: { DownloadCount: any }) => file.DownloadCount).reduce((acc: number, curr: number) => acc + curr, 0)
-  console.log(data.postdata)
 </script>
 
 <div class="mx-auto flex flex-row max-w-7xl gap-4">

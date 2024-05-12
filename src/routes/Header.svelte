@@ -3,6 +3,7 @@
 	import ThemeSelect from '$lib/theme.svelte'
 	import { _ } from 'svelte-i18n'
 	import { browser } from '$app/environment'
+	import session from '$lib/stores/session'
 	let openDropdown: boolean = false
 
 	function handleClickItem() {
@@ -12,7 +13,7 @@
 		window.addEventListener('click', function (e: MouseEvent) {
 			document.querySelectorAll('.binddropdown').forEach(function (dropdown) {
 				if (!dropdown.contains(e.target as Node)) {
-					(dropdown as HTMLDetailsElement).open = false;
+					;(dropdown as HTMLDetailsElement).open = false
 				}
 			})
 		})
@@ -47,28 +48,33 @@
 		</div>
 		<div class="flex-none gap-2">
 			<ThemeSelect />
-			<div class="dropdown dropdown-end">
-				<div tabindex="0" role="button" class="btn btn-outline btn-primary">
-					<!-- <div class="avatar">
-						<div class="w-10 rounded-full">
-							<img
-							alt="user avatar"
-							src="https://cdn.discordapp.com/avatars/762484891945664542/a3d0e4d30b78ce30a2ed22b51bf80df4.png?size=1024"
-							/>
+			{#if $session?.user}
+				<div class="dropdown dropdown-end">
+					<div tabindex="0" role="button" class="btn btn-outline btn-primary">
+						<div class="avatar">
+							<div class="w-10 rounded-full">
+								<img
+									alt="user avatar"
+									src="https://cdn.discordapp.com/avatars/762484891945664542/a3d0e4d30b78ce30a2ed22b51bf80df4.png?size=1024"
+								/>
+							</div>
 						</div>
-					</div> -->
+					</div>
+					<ul
+						class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+					>
+						<li>
+							<a href="/" class="justify-between">{$_('navbar.profile.litematica')}</a>
+						</li>
+						<li><a href="/">{$_('navbar.profile.settings')}</a></li>
+						<li><a href="/">{$_('navbar.profile.logout')}</a></li>
+					</ul>
+				</div>
+			{:else}
+				<div tabindex="0" role="button" class="btn btn-outline btn-primary">
 					<p>{$_('navbar.login')}</p>
 				</div>
-				<ul
-					class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-				>
-					<li>
-						<a href="/" class="justify-between">{$_('navbar.profile.litematica')}</a>
-					</li>
-					<li><a href="/">{$_('navbar.profile.settings')}</a></li>
-					<li><a href="/">{$_('navbar.profile.logout')}</a></li>
-				</ul>
-			</div>
+			{/if}
 		</div>
 	</div>
 </header>
