@@ -23,7 +23,7 @@ export const actions = {
 		}
 		const setCookie = res.headers.get('set-cookie')
 		if (setCookie) {
-      const splitCookieHeaders = scp.splitCookiesString(setCookie)
+			const splitCookieHeaders = scp.splitCookiesString(setCookie)
 			const parsed = scp.parse(splitCookieHeaders)
 			parsed.forEach((cookie) => {
 				event.cookies.set(cookie.name, cookie.value, {
