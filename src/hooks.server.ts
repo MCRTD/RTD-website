@@ -12,11 +12,10 @@ export const handle: Handle = async ({ event, resolve }) => {
 		locale.set(lang)
 	}
 	const cookie_token = event.cookies.get('reflashtoken') as string
-
 	if (cookie_token) {
 		try {
 			const decoded = jwtDecode<jwt>(cookie_token)
-			if (decoded && decoded.exp && decoded.exp < Date.now() / 1000) {
+			if (decoded && decoded.exp && decoded.exp > Date.now() / 1000) {
 				event.locals.user = {
 					id: decoded.userid
 				}

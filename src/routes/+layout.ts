@@ -1,15 +1,11 @@
 import { browser } from '$app/environment'
 import '$lib/i18n' // Import to initialize. Important :)
 import { locale, waitLocale } from 'svelte-i18n'
-import type { LayoutLoad, LayoutLoadEvent } from './$types'
+import type { LayoutLoad } from './$types'
 
-export const load: LayoutLoad = async (event: LayoutLoadEvent) => {
+export const load: LayoutLoad = async () => {
 	if (browser) {
 		locale.set(window.navigator.language)
 	}
 	await waitLocale()
-
-	const user = event.params.user
-	if (!user) return { user: null }
-	return { user }
 }

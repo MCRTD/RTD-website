@@ -1,16 +1,22 @@
 <script>
+// @ts-nocheck
+
 	import { goto } from '$app/navigation'
 	import { applyAction, enhance } from '$app/forms'
+  import toast, { Toaster } from 'svelte-french-toast';
 </script>
-
+<Toaster />
 <div class="card card-side w-full max-w-lg shadow-2xl bg-base-100 mx-auto">
 	<form
 		class="card-body"
 		method="POST"
 		use:enhance={() => async ({result}) => {
-			console.log('form enhanced')
 			await applyAction(result)
-      console.log(result)
+      if (result.type !== 'success') {
+        toast.error(result.data.error)
+        return
+      }
+      toast.success('Login successful')
 		}}
 	>
 		<div class="form-control">
@@ -57,12 +63,13 @@
 		</div>
 		<div class="divider">or</div>
 		<button
+      type="button"
 			class="btn btn-outline btn-primary"
 			on:click={() => setTimeout(() => goto('/auth/register'), 0)}
 		>
 			Register
 		</button>
-		<button class="btn btn-outline btn-primary">
+		<button type="button" class="btn btn-outline btn-primary">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="2em"
@@ -76,7 +83,7 @@
 			>
 			Login
 		</button>
-		<button class="btn btn-outline btn-primary">
+		<button type="button" class="btn btn-outline btn-primary">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="2em"
