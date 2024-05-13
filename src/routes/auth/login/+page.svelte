@@ -1,3 +1,7 @@
+<script>
+	import { goto } from '$app/navigation'
+</script>
+
 <div class="card card-side w-full max-w-lg shadow-2xl bg-base-100 mx-auto">
 	<form class="card-body">
 		<div class="form-control">
@@ -43,6 +47,9 @@
 			<button class="btn btn-primary">Login</button>
 		</div>
 		<div class="divider">or</div>
+    <button class="btn btn-outline btn-primary" on:click={() => (setTimeout(() => goto('/auth/register'), 0))}>
+      Register
+    </button>
 		<button class="btn btn-outline btn-primary">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
