@@ -72,7 +72,13 @@
 					</ul>
 				</div>
 			{:else}
-				<div tabindex="0" role="button" class="btn btn-outline btn-primary" on:click={() => goto("/auth/login")} on:keydown={(e) => e.key === 'Enter' && goto(`/auth/login`)}>
+				<div
+					tabindex="0"
+					role="button"
+					class="btn btn-outline btn-primary"
+					on:click={() => goto('/auth/login')}
+					on:keydown={(e) => e.key === 'Enter' && goto(`/auth/login`)}
+				>
 					<p>{$_('navbar.login')}</p>
 				</div>
 			{/if}

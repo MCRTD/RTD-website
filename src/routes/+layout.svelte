@@ -7,11 +7,11 @@
 	import NProgress from 'nprogress'
 	import { navigating } from '$app/stores'
 	import 'nprogress/nprogress.css'
-  import session from '$lib/stores/session'
+	import session from '$lib/stores/session'
 
-  export let data
+	export let data
 
-  $: if (data?.user) $session.user = data.user
+	$: if (data?.user) $session.user = data.user
 
 	onMount(() => {
 		themeChange(false)

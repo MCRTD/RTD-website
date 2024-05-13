@@ -6,7 +6,7 @@
 	export let author: string[] = []
 	export let download: number[] = []
 	export let vote: number = 0
-  var newdownload = download.reduce((acc, curr) => acc + curr, 0)
+	var newdownload = download.reduce((acc, curr) => acc + curr, 0)
 </script>
 
 <div

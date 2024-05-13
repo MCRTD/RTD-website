@@ -10,7 +10,6 @@ export const load: LayoutLoad = async (event: LayoutLoadEvent) => {
 	await waitLocale()
 
 	const user = event.params.user
-	if (!user) return { user: null };
-	return { user };
-
+	if (!user) return { user: null }
+	return { user }
 }

@@ -1,2 +1,2 @@
-const servername = "https://rtddev.zeabur.app"
+const servername = 'https://rtddev.zeabur.app'
 export default servername
