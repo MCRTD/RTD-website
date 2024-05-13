@@ -1,9 +1,18 @@
 <script>
 	import { goto } from '$app/navigation'
+	import { applyAction, enhance } from '$app/forms'
 </script>
 
 <div class="card card-side w-full max-w-lg shadow-2xl bg-base-100 mx-auto">
-	<form class="card-body">
+	<form
+		class="card-body"
+		method="POST"
+		use:enhance={() => async ({result}) => {
+			console.log('form enhanced')
+			await applyAction(result)
+      console.log(result)
+		}}
+	>
 		<div class="form-control">
 			<label class="label" for="email-input">
 				<span class="label-text">Email</span>
@@ -18,7 +27,7 @@
 						d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z"
 					/></svg
 				>
-				<input type="text" class="grow" placeholder="Username" />
+				<input type="text" class="grow" placeholder="Username" name="username" />
 			</label>
 		</div>
 		<div class="form-control">
@@ -37,7 +46,7 @@
 						clip-rule="evenodd"
 					/></svg
 				>
-				<input type="password" class="grow" placeholder="password" />
+				<input type="password" class="grow" placeholder="password" name="password"/>
 			</label>
 			<label class="label" for="password-input">
 				<a href="/" class="label-text-alt link link-hover">Forgot password?</a>
