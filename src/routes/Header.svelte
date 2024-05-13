@@ -4,6 +4,7 @@
 	import { _ } from 'svelte-i18n'
 	import { browser } from '$app/environment'
 	import session from '$lib/stores/session'
+	import { goto } from '$app/navigation'
 	let openDropdown: boolean = false
 
 	function handleClickItem() {
@@ -71,7 +72,7 @@
 					</ul>
 				</div>
 			{:else}
-				<div tabindex="0" role="button" class="btn btn-outline btn-primary">
+				<div tabindex="0" role="button" class="btn btn-outline btn-primary" on:click={() => goto("/auth/login")} on:keydown={(e) => e.key === 'Enter' && goto(`/auth/login`)}>
 					<p>{$_('navbar.login')}</p>
 				</div>
 			{/if}
