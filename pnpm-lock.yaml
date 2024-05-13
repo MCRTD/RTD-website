@@ -38,6 +38,9 @@ dependencies:
   svelte-i18n:
     specifier: ^4.0.0
     version: 4.0.0(svelte@4.2.15)
+  svelte-tags-input:
+    specifier: ^6.0.0
+    version: 6.0.0
   theme-change:
     specifier: ^2.5.0
     version: 2.5.0
@@ -3450,6 +3453,10 @@ packages:
       svelte: 4.2.15
       typescript: 5.4.5
     dev: true
+
+  /svelte-tags-input@6.0.0:
+    resolution: {integrity: sha512-SyqPj8MEOST7WdmtkGMtHI+FdVZyj3S/sEUAg3hr5HeitKgFUHrSYjkoVgn9ktx/N2UCOEcaudkYjJK2kyxbFg==}
+    dev: false
 
   /svelte-writable-derived@3.1.1(svelte@4.2.15):
     resolution: {integrity: sha512-w4LR6/bYZEuCs7SGr+M54oipk/UQKtiMadyOhW0PTwAtJ/Ai12QS77sLngEcfBx2q4H8ZBQucc9ktSA5sUGZWw==}

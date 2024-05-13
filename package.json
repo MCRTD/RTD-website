@@ -51,6 +51,7 @@
 		"svelte-exmarkdown": "^3.0.5",
 		"svelte-french-toast": "^1.2.0",
 		"svelte-i18n": "^4.0.0",
+		"svelte-tags-input": "^6.0.0",
 		"theme-change": "^2.5.0",
 		"three": "^0.163.0"
 	}
