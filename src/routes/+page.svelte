@@ -1,9 +1,19 @@
 <script>
+// @ts-nocheck
+
 	import Sidebar from './Sidebar.svelte'
 	import Showcard from './showcard.svelte'
+  import { queryParam } from 'sveltekit-search-params'
 
 	export let data
 	const { posts } = data
+
+  const sortstr = {
+    "newest": "最新上傳",
+    "mostvote": "最多投票",
+    "mostdownload": "最多下載"
+  }
+  const nowsort = queryParam('sort')
 </script>
 
 <svelte:head>
@@ -20,21 +30,21 @@
 				placeholder="Type here"
 				class="input input-accent input-bordered join-item w-full"
 			/>
-			<button class="btn btn-accent join-item">Search</button>
+			<button class="btn btn-accent join-item">搜尋</button>
 		</div>
 		<div class="main flex flex-row flex-grow mt-4">
 			<div class="w-[300px] flex-grow">
 				<div
 					class="flex items-center bg-accent text-[oklch(var(--ac))] radio-sm p-2 rounded-md mb-4 flex-col"
 				>
-					<h1 class="text-4xl">探索</h1>
+					<h1 class="text-4xl">{sortstr[$nowsort]}</h1>
 				</div>
 				{#await posts then value}
 					<div class="grid xl:grid-cols-2 grid-cols-1 gap-2">
 						{#each value.servers as litematica, i}
 							<div>
 								<Showcard
-									image="https://cdn.discordapp.com/attachments/1105452240292040806/1236493511369691177/Screenshot_20240430-180736.jpg?ex=663835d2&is=6636e452&hm=c66fc3aef2ce1ec6f798250f64f6bc8b7de8c083dd0850feecea3b396bf29600&"
+									image="https://pbs.twimg.com/media/GNOM-TkbgAA2OjU?format=jpg&name=small"
 									tags={litematica.Tags.split(',')}
 									ID={litematica.ID}
 									vote={litematica.vote}
