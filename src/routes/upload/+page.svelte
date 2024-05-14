@@ -2,9 +2,9 @@
 	import Markdown from 'svelte-exmarkdown'
 	import { applyAction, enhance } from '$app/forms'
 	import toast, { Toaster } from 'svelte-french-toast'
-  import Tags from "svelte-tags-input"
+	import Tags from 'svelte-tags-input'
 	let md = ''
-  let tags: string[]
+	let tags: string[]
 	let agreen = false
 	let cansubmit = (aagreen: Boolean) => {
 		if (aagreen) {
@@ -13,6 +13,7 @@
 		return false
 	}
 </script>
+
 <Toaster />
 <div class="hero min-h-screen">
 	<div class="hero-content flex-col-reverse lg:flex-row-reverse items-start max-w-[1300px]">
@@ -29,25 +30,25 @@
 					formData.append('tags', tags.join(','))
 					return async ({ result }) => {
 						await applyAction(result)
-            if (result.type !== 'success') {
-              toast.error(result.data.error)
-              return
-            }
-            toast.success('Login successful')
+						if (result.type !== 'success') {
+							toast.error(result.data.error)
+							return
+						}
+						toast.success('Login successful')
 					}
 				}}
 			>
-      <div class="label">
-        <span class="label-text">名稱</span>
-      </div>
-      <label class="flex items-center gap-2">
-        <input
-          type="text"
-          name="name"
-          class="grow input input-bordered input-primary"
-          placeholder="tnt duper"
-        />
-      </label>
+				<div class="label">
+					<span class="label-text">名稱</span>
+				</div>
+				<label class="flex items-center gap-2">
+					<input
+						type="text"
+						name="name"
+						class="grow input input-bordered input-primary"
+						placeholder="tnt duper"
+					/>
+				</label>
 				<div class="label">
 					<span class="label-text">檔案</span>
 				</div>
@@ -99,15 +100,11 @@
 				<div class="label">
 					<span class="label-text">標籤</span>
 				</div>
-        <div class="input input-primary p-0 !important">
-          <div class="tags-input override">
-            <Tags
-              bind:tags={tags}
-              maxTags={3}
-              placeholder="Add Tag"
-            />
-          </div>
-        </div>
+				<div class="input input-primary p-0 !important">
+					<div class="tags-input override">
+						<Tags bind:tags maxTags={3} placeholder="Add Tag" />
+					</div>
+				</div>
 				<div class="form-control">
 					<label class="label cursor-pointer">
 						<span class="label-text">同意條款</span>
@@ -125,14 +122,14 @@
 <style>
 	.tags-input.override :global(.svelte-tags-input-layout) {
 		background: none;
-    padding: 0%;
-    border: none;
-    border-color: #00000000;
+		padding: 0%;
+		border: none;
+		border-color: #00000000;
 	}
 
-  .tags-input.override :global(.svelte-tags-input-layout:focus-within) {
-    outline: none;
-  }
+	.tags-input.override :global(.svelte-tags-input-layout:focus-within) {
+		outline: none;
+	}
 
 	/* .tags-input.override :global(.svelte-tags-input-tag) {
 		background-color: #00ff00;

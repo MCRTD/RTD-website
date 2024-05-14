@@ -1,19 +1,19 @@
 <script>
-// @ts-nocheck
+	// @ts-nocheck
 
 	import Sidebar from './Sidebar.svelte'
 	import Showcard from './showcard.svelte'
-  import { queryParam } from 'sveltekit-search-params'
+	import { queryParam } from 'sveltekit-search-params'
 
 	export let data
 	const { posts } = data
 
-  const sortstr = {
-    "newest": "最新上傳",
-    "mostvote": "最多投票",
-    "mostdownload": "最多下載"
-  }
-  const nowsort = queryParam('sort')
+	const sortstr = {
+		newest: '最新上傳',
+		mostvote: '最多投票',
+		mostdownload: '最多下載'
+	}
+	const nowsort = queryParam('sort')
 </script>
 
 <svelte:head>

@@ -11,19 +11,18 @@ export const actions = {
 
 		const username = data.get('username') as string
 		const password = data.get('password') as string
-    let res
-    try{
-      res = await fetch(servername + '/api/user/login', {
-        headers: {
-          username: username,
-          password: password
-        }
-      })
-    }
-    catch(e){
-      return fail(401, { error: 'Server Error' })
-    }
-      if (!res.ok) {
+		let res
+		try {
+			res = await fetch(servername + '/api/user/login', {
+				headers: {
+					username: username,
+					password: password
+				}
+			})
+		} catch (e) {
+			return fail(401, { error: 'Server Error' })
+		}
+		if (!res.ok) {
 			return fail(401, { error: 'Failed to login' })
 		}
 		const setCookie = res.headers.get('set-cookie')

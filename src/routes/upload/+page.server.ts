@@ -18,11 +18,11 @@ export const actions = {
 
 		formData.append('litematica', file)
 
-    const cookies = event.cookies.getAll();
-    let cookie = '';
-    for (const cookieObj of cookies) {
-      cookie += `${cookieObj.name}=${cookieObj.value}; `;
-    }
+		const cookies = event.cookies.getAll()
+		let cookie = ''
+		for (const cookieObj of cookies) {
+			cookie += `${cookieObj.name}=${cookieObj.value}; `
+		}
 		console.log(cookie)
 
 		const res = await fetch(servername + '/api/litematica', {
