@@ -40,6 +40,7 @@
 					<h1 class="text-4xl">{sortstr[$nowsort]}</h1>
 				</div>
 				{#await posts then value}
+          {console.log(value)}
 					<div class="grid xl:grid-cols-2 grid-cols-1 gap-2">
 						{#each value.servers as litematica, i}
 							<div>
