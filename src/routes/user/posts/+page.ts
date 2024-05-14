@@ -16,7 +16,6 @@ export const load = async (event) => {
 					throw new Error(`HTTP error! status: ${data.status}`)
 				}
 				const json = await data.json()
-        console.log(json);
 				return json.Users[0]
 			} catch (e) {
 				console.error(e)

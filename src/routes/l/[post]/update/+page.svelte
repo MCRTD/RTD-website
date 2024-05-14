@@ -3,8 +3,10 @@
 	import { applyAction, enhance } from '$app/forms'
 	import toast, { Toaster } from 'svelte-french-toast'
 	import Tags from 'svelte-tags-input'
-	let md = ''
 	let tags: string[]
+  export let data
+  tags = data && data.posts && data.posts.Tags ? data.posts.Tags.split(',') : []
+	let md = data.posts.Description
 </script>
 
 <Toaster />
@@ -41,6 +43,7 @@
 						name="name"
 						class="grow input input-bordered input-primary"
 						placeholder="tnt duper"
+            value={data.posts.LitematicaName}
 					/>
 				</label>
 				<div class="label">
@@ -54,6 +57,8 @@
 				<input
 					type="file"
 					name="file"
+          accept=".jpg, .png, .jpeg, .gif,"
+          multiple={true}
 					class="file-input file-input-bordered file-input-primary w-full"
 				/>
 				<div class="label">
@@ -96,7 +101,7 @@
 				</div>
 				<div class="input input-primary p-0 !important">
 					<div class="tags-input override">
-						<Tags bind:tags maxTags={3} placeholder="Add Tag" />
+						<Tags bind:tags maxTags={3} placeholder="Add Tag" value={['w']}/>
 					</div>
 				</div>
 				<div class="form-control mt-6">

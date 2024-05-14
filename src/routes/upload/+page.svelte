@@ -55,6 +55,7 @@
 				<input
 					type="file"
 					name="file"
+          accept=".litematic"
 					class="file-input file-input-bordered file-input-primary w-full max-w-xs"
 				/>
 				<div class="label">

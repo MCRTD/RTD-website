@@ -23,7 +23,6 @@ export const actions = {
 		for (const cookieObj of cookies) {
 			cookie += `${cookieObj.name}=${cookieObj.value}; `
 		}
-		console.log(cookie)
 
 		const res = await fetch(servername + '/api/litematica', {
 			method: 'POST',
@@ -38,7 +37,6 @@ export const actions = {
 			},
 			body: formData
 		})
-		console.log(res)
 		if (!res.ok) {
 			const status = await res.json()
 			return fail(401, { error: status.detail })
