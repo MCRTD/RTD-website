@@ -14,13 +14,13 @@
 	}
 </script>
 <Toaster />
-<div class="hero min-h-screen bg-base-200">
-	<div class="hero-content flex-col-reverse lg:flex-row-reverse items-start">
-		<div class="text-center max-w-lg lg:text-left break-words">
+<div class="hero min-h-screen">
+	<div class="hero-content flex-col-reverse lg:flex-row-reverse items-start max-w-[1300px]">
+		<div class="text-center max-w-xl lg:text-left break-words inline-block">
 			<h1 class="mb-5 text-5xl font-bold">Preview</h1>
 			<Markdown {md} />
 		</div>
-		<div class="card w-full max-w-lg bg-base-100 m-auto">
+		<div class="card w-full max-w-lg bg-base-200 m-auto">
 			<form
 				class="card-body"
 				enctype="multipart/form-data"
