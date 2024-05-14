@@ -1,9 +1,10 @@
 import { writable } from 'svelte/store'
-
+interface User {
+	id?: string | null
+}
 interface Session {
-	user: string | null
+	user: User | null
 }
 
 const session = writable<Session>({ user: null })
-
 export default session

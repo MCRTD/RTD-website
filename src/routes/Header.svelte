@@ -65,10 +65,9 @@
 					<ul
 						class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
 					>
-						<li>
-							<a href="/" class="justify-between">{$_('navbar.profile.litematica')}</a>
-						</li>
-						<li><a href="/">{$_('navbar.profile.settings')}</a></li>
+						<li><a href="/u/{$session.user?.id}">個人檔案</a></li>
+						<li><a href="/user/posts">{$_('navbar.profile.litematica')}</a></li>
+						<li><a href="/user/setting">{$_('navbar.profile.settings')}</a></li>
 						<li><a href="/">{$_('navbar.profile.logout')}</a></li>
 					</ul>
 				</div>

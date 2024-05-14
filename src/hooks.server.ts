@@ -16,6 +16,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 		try {
 			const decoded = jwtDecode<jwt>(cookie_token)
 			if (decoded && decoded.exp && decoded.exp > Date.now() / 1000) {
+        console.log('add user to locals');
 				event.locals.user = {
 					id: decoded.userid
 				}
