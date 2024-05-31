@@ -3,14 +3,22 @@
 	import { applyAction, enhance } from '$app/forms'
 	import toast, { Toaster } from 'svelte-french-toast'
 	import Tags from 'svelte-tags-input'
+  import type { Plugin } from 'svelte-exmarkdown';
+  import rehypeHighlight from 'rehype-highlight';
 	let md = ''
 	let tags: string[]
 	let agreen = false
+  const plugins: Plugin[] = [
+		{
+			rehypePlugin: [
+				rehypeHighlight,
+			]
+		}
+	]
 	let cansubmit = (aagreen: Boolean) => {
 		if (aagreen) {
 			return true
 		}
-		return false
 	}
 </script>
 
@@ -19,7 +27,7 @@
 	<div class="hero-content flex-col-reverse lg:flex-row-reverse items-start max-w-[1300px]">
 		<div class="text-center max-w-xl lg:text-left break-words inline-block">
 			<h1 class="mb-5 text-5xl font-bold">Preview</h1>
-			<Markdown {md} />
+			<Markdown md={md} plugins={plugins}/>
 		</div>
 		<div class="card w-full max-w-lg bg-base-200 m-auto">
 			<form
