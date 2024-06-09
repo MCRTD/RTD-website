@@ -1,11 +1,11 @@
 import servername from '$lib/data'
 import { browser } from '$app/environment'
 
-export const load = async ({params}) => {
+export const load = async ({ params }) => {
 	const getposts = async () => {
 		if (browser) {
 			try {
-				const data = await fetch(servername + '/api/litematica?LitematicaID='+params.post)
+				const data = await fetch(servername + '/api/litematica?LitematicaID=' + params.post)
 				if (!data.ok) {
 					throw new Error(`HTTP error! status: ${data.status}`)
 				}
@@ -19,7 +19,7 @@ export const load = async ({params}) => {
 			return {}
 		}
 	}
-  const postdata = await getposts()
+	const postdata = await getposts()
 	return {
 		posts: postdata
 	}

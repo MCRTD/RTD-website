@@ -1,6 +1,18 @@
+import tailwindMdBase from '@geoffcodesthings/tailwind-md-base'
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
+	theme: {
+		markdownBase: {
+			blockquote: {
+				color: 'hsl(var(--foreground) / <alpha-value>)'
+			},
+			code: {
+				backgroundColor: 'var(--code-bg)',
+				color: 'var(--text-200)'
+			}
+		}
+	},
 	daisyui: {
 		themes: [
 			'light',
@@ -22,6 +34,7 @@ export default {
 					'--bg-200': '#292929',
 					'--bg-300': '#404040',
 					'--glow-color': 'rgba(236, 240, 241,.3)',
+					'--code-bg': '#282c34',
 					'.infocards': {
 						'background-color': '#A0153E !important',
 						color: '#fff !important'
@@ -31,5 +44,5 @@ export default {
 			'night'
 		]
 	},
-	plugins: [require('daisyui'), require('tailwind-scrollbar')]
+	plugins: [require('daisyui'), require('tailwind-scrollbar'), tailwindMdBase()]
 }

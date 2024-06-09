@@ -3,17 +3,18 @@
 	import { applyAction, enhance } from '$app/forms'
 	import toast, { Toaster } from 'svelte-french-toast'
 	import Tags from 'svelte-tags-input'
-  import type { Plugin } from 'svelte-exmarkdown';
-  import rehypeHighlight from 'rehype-highlight';
+	import type { Plugin } from 'svelte-exmarkdown'
+	import rehypeHighlight from 'rehype-highlight'
+	import { gfmPlugin } from 'svelte-exmarkdown/gfm'
+	import 'highlight.js/styles/atom-one-dark.css'
 	let md = ''
 	let tags: string[]
 	let agreen = false
-  const plugins: Plugin[] = [
+	const plugins: Plugin[] = [
 		{
-			rehypePlugin: [
-				rehypeHighlight,
-			]
-		}
+			rehypePlugin: [rehypeHighlight]
+		},
+		gfmPlugin()
 	]
 	let cansubmit = (aagreen: Boolean) => {
 		if (aagreen) {
@@ -27,7 +28,9 @@
 	<div class="hero-content flex-col-reverse lg:flex-row-reverse items-start max-w-[1300px]">
 		<div class="text-center max-w-xl lg:text-left break-words inline-block">
 			<h1 class="mb-5 text-5xl font-bold">Preview</h1>
-			<Markdown md={md} plugins={plugins}/>
+			<div class="markdown">
+				<Markdown {md} {plugins} />
+			</div>
 		</div>
 		<div class="card w-full max-w-lg bg-base-200 m-auto">
 			<form
@@ -63,7 +66,7 @@
 				<input
 					type="file"
 					name="file"
-          accept=".litematic"
+					accept=".litematic"
 					class="file-input file-input-bordered file-input-primary w-full max-w-xs"
 				/>
 				<div class="label">

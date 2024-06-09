@@ -3,15 +3,15 @@ import { browser } from '$app/environment'
 import session from '$lib/stores/session'
 import { get } from 'svelte/store'
 export const load = async (event) => {
-  const parent_user = (await event.parent())?.user;
-	const session_user = get(session)?.user;
-  const user = session_user || parent_user;
+	const parent_user = (await event.parent())?.user
+	const session_user = get(session)?.user
+	const user = session_user || parent_user
 	const getuser = async () => {
 		if (browser) {
 			try {
-				const data = await fetch(servername + '/api/user?user='+user.id,{
-          method: 'GET'
-        })
+				const data = await fetch(servername + '/api/user?user=' + user.id, {
+					method: 'GET'
+				})
 				if (!data.ok) {
 					throw new Error(`HTTP error! status: ${data.status}`)
 				}

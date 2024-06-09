@@ -51,8 +51,9 @@
 							<td>{(item.Size / 1024).toFixed(2)} KB</td>
 						{/if}
 						<th>
-							<button class="btn btn-success btn-outline btn-xs" on:click={() => openInNewTab(item.FilePath)}
-								>Download</button
+							<button
+								class="btn btn-success btn-outline btn-xs"
+								on:click={() => openInNewTab(item.FilePath)}>Download</button
 							>
 						</th>
 					</tr>
