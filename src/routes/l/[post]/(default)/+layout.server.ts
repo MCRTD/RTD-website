@@ -1,4 +1,4 @@
-import type { LayoutServerLoad } from '../$types'
+import type { LayoutServerLoad } from './$types'
 import servername from '$lib/data'
 
 export const load: LayoutServerLoad = async ({ params }) => {

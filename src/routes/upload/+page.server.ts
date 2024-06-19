@@ -28,8 +28,8 @@ export const actions = {
 			method: 'POST',
 			headers: {
 				Description: info,
-				GroupId: -1,
-				ServerId: -1,
+				GroupId: "-1",
+				ServerId: "-1",
 				Name: name,
 				Tags: tags,
 				Author: author,
