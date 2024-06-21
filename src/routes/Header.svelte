@@ -67,7 +67,7 @@
 					>
 						<li><a href="/u/{$session.user?.id}">個人檔案</a></li>
 						<li><a href="/user/posts">{$_('navbar.profile.litematica')}</a></li>
-						<li><a href="/user/setting">{$_('navbar.profile.settings')}</a></li>
+						<li><a href="/user/settings">{$_('navbar.profile.settings')}</a></li>
 						<li><a href="/">{$_('navbar.profile.logout')}</a></li>
 					</ul>
 				</div>
