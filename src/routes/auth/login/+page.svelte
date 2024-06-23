@@ -1,7 +1,7 @@
 <script>
 	// @ts-nocheck
 
-	import { goto } from '$app/navigation'
+	import { goto, invalidateAll } from '$app/navigation'
 	import { applyAction, enhance } from '$app/forms'
 	import toast, { Toaster } from 'svelte-french-toast'
 </script>
@@ -18,6 +18,8 @@
 					toast.error(result.data.error)
 					return
 				}
+				invalidateAll()
+				setTimeout(() => goto('/'), 0)
 				toast.success('Login successful')
 			}}
 	>
