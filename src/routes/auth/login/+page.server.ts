@@ -34,7 +34,8 @@ export const actions = {
 					secure: !dev,
 					...cookie,
 					path: cookie.path || '/',
-					sameSite: cookie.sameSite as CookieSerializeOptions['sameSite']
+					sameSite: cookie.sameSite as CookieSerializeOptions['sameSite'],
+          httpOnly: false
 				})
 			})
 		}
