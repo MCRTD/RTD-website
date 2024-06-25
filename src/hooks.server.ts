@@ -1,4 +1,4 @@
-import type { Handle } from '@sveltejs/kit'
+import type { Handle, HandleFetch } from '@sveltejs/kit'
 import { jwtDecode, type JwtPayload } from 'jwt-decode'
 import { locale } from 'svelte-i18n'
 
@@ -27,3 +27,19 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	return resolve(event)
 }
+
+export const handleFetch = (async ({ event, request, fetch }) => {
+	// const cookies = event.request.headers.get('cookie')
+
+	request.headers.set(
+		'cookie',
+		event.cookies
+			.getAll()
+			.filter(({ value }) => value !== '')
+			.map(({ name, value }) => `${name}=${encodeURIComponent(value)}`)
+			.join('; ')
+	)
+	console.log('Cookies Are : ')
+	console.log(request.headers)
+	return fetch(request)
+}) satisfies HandleFetch

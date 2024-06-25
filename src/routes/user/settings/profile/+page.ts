@@ -3,9 +3,13 @@ import { browser } from '$app/environment'
 import servername from '$lib/data'
 import session from '$lib/stores/session'
 import { get } from 'svelte/store'
-
+interface EventUser {
+  user:{
+    id: string
+  }
+}
 export const load = (async (event) => {
-	const parent_user = (await event.parent())?.user
+	const parent_user = (await event.parent() as EventUser)?.user;
 	const session_user = get(session)?.user
 	const user = session_user || parent_user
 	const getuserdata = async () => {
