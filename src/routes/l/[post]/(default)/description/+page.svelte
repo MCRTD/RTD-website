@@ -4,6 +4,15 @@
 	import { Canvas } from '@threlte/core'
 	import Scene from './testthree.svelte'
 	import Obj from './testobj.svelte'
+  import rehypeHighlight from 'rehype-highlight'
+  import { gfmPlugin } from 'svelte-exmarkdown/gfm'
+  import type { Plugin } from 'svelte-exmarkdown'
+	const plugins: Plugin[] = [
+		{
+			rehypePlugin: [rehypeHighlight]
+		},
+		gfmPlugin()
+	]
 </script>
 
 <div class="bg-[oklch(var(--n))] rounded-xl p-2">
@@ -41,7 +50,7 @@
 		<a href="#item3" class="btn btn-xs">3</a>
 		<a href="#item4" class="btn btn-xs">4</a>
 	</div>
-	<div class="">
-		<Markdown {md} />
-	</div>
+  <div class="markdown">
+    <Markdown {md} {plugins} />
+  </div>
 </div>
