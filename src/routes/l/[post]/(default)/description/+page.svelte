@@ -13,6 +13,7 @@
 		},
 		gfmPlugin()
 	]
+  export let data
 </script>
 
 <div class="bg-[oklch(var(--n))] rounded-xl p-2">
@@ -26,7 +27,7 @@
 		<div id="item2" class="carousel-item w-full">
 			<!-- svelte-ignore a11y-missing-attribute -->
 			<Canvas>
-				<Obj />
+				<Obj objdata={data.postdata.Files[0]}/>
 			</Canvas>
 		</div>
 		<!-- svelte-ignore a11y-missing-attribute -->

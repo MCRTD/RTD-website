@@ -48,6 +48,7 @@
 		"@types/set-cookie-parser": "^2.4.7",
 		"@types/three": "^0.163.0",
 		"arktype": "2.0.0-dev.26",
+		"camera-controls": "^2.8.5",
 		"highlight.js": "^11.9.0",
 		"jwt-decode": "^4.0.0",
 		"rehype-highlight": "^7.0.0",
