@@ -83,6 +83,7 @@
 	is={ref}
 	on:controlstart={(e) => {
 		disableAutoRotate = true
+    autoRotate = false
 	}}
 	on:zoom={(e) => {
 		console.log('zoomstart', e)

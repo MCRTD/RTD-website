@@ -2,8 +2,7 @@
 	import Markdown from 'svelte-exmarkdown'
 	let md = '# Hello world!'
 	import { Canvas } from '@threlte/core'
-	import Scene from './testthree.svelte'
-	import Obj from './testobj.svelte'
+	import Obj from './litematicaobj.svelte'
   import rehypeHighlight from 'rehype-highlight'
   import { gfmPlugin } from 'svelte-exmarkdown/gfm'
   import type { Plugin } from 'svelte-exmarkdown'
@@ -18,13 +17,7 @@
 
 <div class="bg-[oklch(var(--n))] rounded-xl p-2">
 	<div class="carousel w-full max-h-[500px]">
-		<div id="item1" class="carousel-item w-full">
-			<!-- svelte-ignore a11y-missing-attribute -->
-			<Canvas>
-				<Scene />
-			</Canvas>
-		</div>
-		<div id="item2" class="carousel-item w-full">
+		<div id="obj" class="carousel-item w-full">
 			<!-- svelte-ignore a11y-missing-attribute -->
 			<Canvas>
 				<Obj objdata={data.postdata.Files[0]}/>
@@ -46,10 +39,9 @@
 		</div>
 	</div>
 	<div class="flex justify-center w-full py-2 gap-2">
-		<a href="#item1" class="btn btn-xs">1</a>
-		<a href="#item2" class="btn btn-xs">2</a>
-		<a href="#item3" class="btn btn-xs">3</a>
-		<a href="#item4" class="btn btn-xs">4</a>
+		<a href="#obj" class="btn btn-xs">1</a>
+		<a href="#item3" class="btn btn-xs">2</a>
+		<a href="#item4" class="btn btn-xs">3</a>
 	</div>
   <div class="markdown">
     <Markdown {md} {plugins} />
