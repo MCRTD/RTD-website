@@ -19,10 +19,6 @@
 			})
 		})
 	}
-  function logout() {
-    //clean cookie
-    document.cookie
-  }
 </script>
 
 <header class="sticky top-0 z-50 mb-2">

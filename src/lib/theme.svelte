@@ -1,10 +1,3 @@
-<!-- <div class="">
-	<select data-choose-theme class="select select-bordered select-primary">
-		<option value="dark">Dark</option>
-		<option value="light">Light</option>
-		<option value="night">Night</option>
-	</select>
-</div> -->
 <div class="dropdown">
 	<div tabindex="0" role="button" class="btn m-1">
 		Theme
@@ -20,6 +13,7 @@
 	<ul class="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52">
 		<li>
 			<input
+				data-set-theme="dark"
 				type="radio"
 				name="theme-dropdown"
 				class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
@@ -29,6 +23,7 @@
 		</li>
 		<li>
 			<input
+				data-set-theme="light"
 				type="radio"
 				name="theme-dropdown"
 				class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
@@ -38,6 +33,7 @@
 		</li>
 		<li>
 			<input
+				data-set-theme="night"
 				type="radio"
 				name="theme-dropdown"
 				class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
