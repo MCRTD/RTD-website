@@ -3,6 +3,8 @@ const pages: string[] = [
   "upload",
   "terms",
   "privacy",
+  "auth/register",
+  "auth/login",
 ]
 
 /** @type {import('./$types').RequestHandler} */

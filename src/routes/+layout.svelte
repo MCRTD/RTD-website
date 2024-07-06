@@ -8,6 +8,7 @@
 	import { navigating } from '$app/stores'
 	import 'nprogress/nprogress.css'
 	import session from '$lib/stores/session'
+	import { Toaster } from 'svelte-french-toast'
 
 	export let data
 
@@ -32,6 +33,7 @@
 	}
 </script>
 
+<Toaster />
 <div class="app">
 	<Header />
 
