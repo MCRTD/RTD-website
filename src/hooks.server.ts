@@ -1,12 +1,19 @@
+import {sequence} from '@sveltejs/kit/hooks';
+import * as Sentry from '@sentry/sveltekit';
 import type { Handle, HandleFetch } from '@sveltejs/kit'
 import { jwtDecode, type JwtPayload } from 'jwt-decode'
 import { locale } from 'svelte-i18n'
 
+Sentry.init({
+    dsn: "https://41283f0a6bff13c0c019d4d542c6e785@o1362810.ingest.us.sentry.io/4507554758197248",
+    tracesSampleRate: 1
+})
+
 interface jwt extends JwtPayload {
-	userid: string
+				userid: string
 }
 
-export const handle: Handle = async ({ event, resolve }) => {
+export const handle: Handle = sequence(Sentry.sentryHandle(), async ({ event, resolve }) => {
 	const lang = event.request.headers.get('accept-language')?.split(',')[0]
 	if (lang) {
 		locale.set(lang)
@@ -26,20 +33,21 @@ export const handle: Handle = async ({ event, resolve }) => {
 	}
 
 	return resolve(event)
-}
+})
 
 export const handleFetch = (async ({ event, request, fetch }) => {
-	// const cookies = event.request.headers.get('cookie')
+				// const cookies = event.request.headers.get('cookie')
 
-	request.headers.set(
-		'cookie',
-		event.cookies
-			.getAll()
-			.filter(({ value }) => value !== '')
-			.map(({ name, value }) => `${name}=${encodeURIComponent(value)}`)
-			.join('; ')
-	)
-	console.log('Cookies Are : ')
-	console.log(request.headers)
-	return fetch(request)
+				request.headers.set(
+								'cookie',
+								event.cookies
+												.getAll()
+												.filter(({ value }) => value !== '')
+												.map(({ name, value }) => `${name}=${encodeURIComponent(value)}`)
+												.join('; ')
+				)
+				console.log('Cookies Are : ')
+				console.log(request.headers)
+				return fetch(request)
 }) satisfies HandleFetch
+export const handleError = Sentry.handleErrorWithSentry();
