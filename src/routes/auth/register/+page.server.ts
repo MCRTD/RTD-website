@@ -12,11 +12,11 @@ export const actions = {
 		let res
 		try {
 			res = await fetch(servername + '/api/user/register', {
-        method: 'POST',
+				method: 'POST',
 				headers: {
 					username: username,
 					password: password,
-          email: email
+					email: email
 				}
 			})
 		} catch (e) {
@@ -26,13 +26,10 @@ export const actions = {
 			return fail(401, { error: 'Failed to Register' })
 		}
 
-
 		const token = await res.json()
 		return {
 			status: 200,
-			body: {
-				token
-			}
+			token
 		}
 	}
 } satisfies Actions

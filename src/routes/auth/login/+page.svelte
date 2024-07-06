@@ -3,10 +3,9 @@
 
 	import { goto, invalidateAll } from '$app/navigation'
 	import { applyAction, enhance } from '$app/forms'
-	import toast, { Toaster } from 'svelte-french-toast'
+	import toast from 'svelte-french-toast'
 </script>
 
-<Toaster />
 <div class="card card-side w-full max-w-lg shadow-2xl bg-base-100 mx-auto">
 	<form
 		class="card-body"

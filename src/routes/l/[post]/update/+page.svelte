@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Markdown from 'svelte-exmarkdown'
 	import { applyAction, enhance } from '$app/forms'
-	import toast, { Toaster } from 'svelte-french-toast'
+	import toast from 'svelte-french-toast'
 	import Tags from 'svelte-tags-input'
 	import type { Plugin } from 'svelte-exmarkdown'
 	import rehypeHighlight from 'rehype-highlight'
@@ -19,7 +19,7 @@
 	]
 </script>
 
-<Toaster />
+
 <div class="hero min-h-screen">
 	<div class="hero-content flex-col-reverse lg:flex-row-reverse items-start max-w-[1300px]">
 		<div class="text-center max-w-xl lg:text-left break-words inline-block">

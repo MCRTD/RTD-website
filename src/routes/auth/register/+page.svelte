@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { goto, invalidateAll } from '$app/navigation'
 	import { applyAction, enhance } from '$app/forms'
-	import toast, { Toaster } from 'svelte-french-toast'
+	import toast from 'svelte-french-toast'
 </script>
-
 
 <div class="card w-full max-w-sm shadow-2xl bg-base-100 mx-auto">
 	<form
@@ -16,10 +15,10 @@
 					toast.error(result.data.error)
 					return
 				}
-        if(result.data.AleardyRegister){
-          toast.error('Aleardy Register')
-          return
-        }
+				if (result.data.token.AleardyRegister) {
+					toast.error('Aleardy Register')
+					return
+				}
 				setTimeout(() => goto('/'), 0)
 				toast.success('Register successful')
 			}}
@@ -34,10 +33,10 @@
 					d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z"
 				/></svg
 			>
-      <input type="text" class="grow" placeholder="Username" name="username" />
+			<input type="text" class="grow" placeholder="Username" name="username" />
 		</label>
 		<label class="input input-bordered flex items-center gap-2">
-      <svg
+			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 16 16"
 				fill="currentColor"
@@ -48,7 +47,7 @@
 					d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
 				/></svg
 			>
-			<input type="text" class="grow" placeholder="Email" name="email"/>
+			<input type="text" class="grow" placeholder="Email" name="email" />
 		</label>
 		<label class="input input-bordered flex items-center gap-2">
 			<svg
@@ -62,7 +61,7 @@
 					clip-rule="evenodd"
 				/></svg
 			>
-			<input type="password" class="grow" placeholder="Password" name="password"/>
+			<input type="password" class="grow" placeholder="Password" name="password" />
 		</label>
 		<label class="input input-bordered flex items-center gap-2">
 			<svg
