@@ -18,7 +18,7 @@
 
 <svelte:head>
 	<title>探索 | RTD 紅石資料庫</title>
-	<meta name="description" content="Svelte demo app" />
+	<meta name="description" content="Minecraft Redstone Database" />
 </svelte:head>
 
 <section>
