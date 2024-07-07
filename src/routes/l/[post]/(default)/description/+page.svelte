@@ -3,38 +3,39 @@
 	let md = '# Hello world!'
 	import { Canvas } from '@threlte/core'
 	import Obj from './litematicaobj.svelte'
-  import rehypeHighlight from 'rehype-highlight'
-  import { gfmPlugin } from 'svelte-exmarkdown/gfm'
-  import type { Plugin } from 'svelte-exmarkdown'
+	import rehypeHighlight from 'rehype-highlight'
+	import { gfmPlugin } from 'svelte-exmarkdown/gfm'
+	import type { Plugin } from 'svelte-exmarkdown'
 	const plugins: Plugin[] = [
 		{
 			rehypePlugin: [rehypeHighlight]
 		},
 		gfmPlugin()
 	]
-  export let data
+	export let data
 </script>
 
 <div class="bg-[oklch(var(--n))] rounded-xl p-2">
 	<div class="carousel w-full max-h-[500px]">
 		<div id="obj" class="carousel-item w-full">
-			<!-- svelte-ignore a11y-missing-attribute -->
 			<Canvas>
-				<Obj objdata={data.postdata.Files[0]}/>
+				<Obj objdata={data.postdata.Files[0]} />
 			</Canvas>
 		</div>
-		<!-- svelte-ignore a11y-missing-attribute -->
+
 		<div id="item3" class="carousel-item w-full">
 			<img
 				src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
 				class="w-full object-scale-down"
+				alt="litematica"
 			/>
 		</div>
-		<!-- svelte-ignore a11y-missing-attribute -->
+
 		<div id="item4" class="carousel-item w-full">
 			<img
 				src="https://im.bahamut.com.tw/chatimg%2Faa2b637504f093b18ab7867dab55bf8c.jpeg?alt=media"
 				class="w-full object-scale-down"
+				alt="litematica"
 			/>
 		</div>
 	</div>
@@ -43,7 +44,7 @@
 		<a href="#item3" class="btn btn-xs">2</a>
 		<a href="#item4" class="btn btn-xs">3</a>
 	</div>
-  <div class="markdown">
-    <Markdown {md} {plugins} />
-  </div>
+	<div class="markdown">
+		<Markdown {md} {plugins} />
+	</div>
 </div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SettingSidebar from './setting_sidebar.svelte'
+  import SettingSidebar from '$lib/components/setting_sidebar.svelte'
 
   const sidebarNavItems = [
 		{
