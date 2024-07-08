@@ -35,7 +35,7 @@
 
 <Toaster />
 <div class="app">
-	<Header />
+	<Header user={data.userdata}/>
 
 	<main>
 		<slot />

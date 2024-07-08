@@ -4,30 +4,35 @@
 	import { onMount } from 'svelte'
 	import { browser } from '$app/environment'
 	import { applyAction, enhance } from '$app/forms'
+	import toast from 'svelte-french-toast'
+
 	export let data: PageData
 	const { userdata } = data
 	let username = ''
 	let email = ''
 	let Description = ''
 	let password = ''
+	let avatar = 'https://openclipart.org/download/247319/abstract-user-flat-3.svg'
+	let uploadavatar: HTMLInputElement
+	let showavatar = false
 
-	const Save_user_password = async () => {
-		try {
-			await fetch(servername + '/api/user/password', {
-				method: 'PATCH',
-				headers: {
-					'Content-Type': 'application/json',
-					Password: password,
-					cookie: browser ? document.cookie : ''
-				}
-			})
-		} catch (e) {
-			console.error(e)
+	function avatarchange() {
+		const file = uploadavatar.files && uploadavatar.files[0]
+		if (file) {
+			const reader = new FileReader()
+			reader.onload = () => {
+				avatar = reader.result as string
+				showavatar = true
+			}
+			reader.readAsDataURL(file)
+		} else {
+			showavatar = false
 		}
 	}
 
 	onMount(async () => {
 		const user = await userdata()
+		avatar = user.Avatar == '' ? avatar : user.Avatar
 		username = user.Username
 		email = user.Email
 		Description = user.Description
@@ -37,6 +42,55 @@
 <div>
 	<h3 class="text-lg font-medium">Profile</h3>
 </div>
+
+<form
+	class="flex flex-col bg-base-200 p-4 mb-2"
+	enctype="multipart/form-data"
+	method="POST"
+	use:enhance={({ formData }) => {
+		formData.append('id', 'useravatar')
+    return async ({ result }) => {
+      await applyAction(result)
+      if (result.type !== 'success') {
+        toast.error(result.data.error)
+        return
+      }
+      toast.success('Login successful')
+    }
+
+	}}
+>
+	<div class="p-4">
+		<div class="flex-none w-48 relative mb-3">
+			<h2 class="text-lg font-medium">UserData</h2>
+		</div>
+		<div class="flex-auto">
+			<div class="label">
+				<span class="label-text">用戶頭像</span>
+			</div>
+			<div class="flex flex-row items-center gap-2">
+				<div class="avatar">
+					<div class="w-24 rounded-full">
+						{#if showavatar}
+							<img src={avatar} alt="user avatar" />
+						{:else}
+							<img src={avatar} alt="user avatar" />
+						{/if}
+					</div>
+				</div>
+				<input
+					type="file"
+					name="avatar"
+					class="file-input file-input-bordered file-input-primary w-full max-w-xs"
+					accept="image/*"
+					bind:this={uploadavatar}
+					on:change={avatarchange}
+				/>
+			</div>
+		</div>
+	</div>
+	<button class="btn btn-primary ml-auto">Save</button>
+</form>
 
 <form
 	class="flex flex-col bg-base-200 p-4 mb-2"

@@ -7,6 +7,8 @@
 	import { goto } from '$app/navigation'
 	let openDropdown: boolean = false
 
+	export let user
+
 	function handleClickItem() {
 		openDropdown = false
 	}
@@ -54,10 +56,7 @@
 					<div tabindex="0" role="button" class="btn btn-outline btn-primary">
 						<div class="avatar">
 							<div class="w-10 rounded-full">
-								<img
-									alt="user avatar"
-									src="https://cdn.discordapp.com/avatars/762484891945664542/a3d0e4d30b78ce30a2ed22b51bf80df4.png?size=1024"
-								/>
+								<img alt="user avatar" src={user.Avatar} />
 							</div>
 						</div>
 						<p>用戶名稱</p>

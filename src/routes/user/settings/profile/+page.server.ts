@@ -69,6 +69,33 @@ export const actions = {
 					token
 				}
 			}
+		} else if (id === 'useravatar') {
+			const avatar = data.get('avatar') as File
+			const formData = new FormData()
+			formData.append('avatar', avatar)
+			const cookies = event.cookies.getAll()
+			let cookie = ''
+			for (const cookieObj of cookies) {
+				cookie += `${cookieObj.name}=${cookieObj.value}; `
+			}
+			const res = await fetch(servername + '/api/user/avatar', {
+				method: 'POST',
+				headers: {
+					cookie: cookie
+				},
+				body: formData
+			})
+			if (!res.ok) {
+				const status = await res.json()
+				return fail(401, { error: status.detail })
+			}
+			const token = await res.json()
+			return {
+				status: 200,
+				body: {
+					token
+				}
+			}
 		}
 	}
 } satisfies Actions
