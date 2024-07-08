@@ -1,18 +1,18 @@
 <script lang="ts">
 	import Markdown from 'svelte-exmarkdown'
-	let md = '# Hello world!'
 	import { Canvas } from '@threlte/core'
 	import Obj from './litematicaobj.svelte'
 	import rehypeHighlight from 'rehype-highlight'
 	import { gfmPlugin } from 'svelte-exmarkdown/gfm'
 	import type { Plugin } from 'svelte-exmarkdown'
 	const plugins: Plugin[] = [
-		{
-			rehypePlugin: [rehypeHighlight]
+    {
+      rehypePlugin: [rehypeHighlight]
 		},
 		gfmPlugin()
 	]
 	export let data
+  let md = data.postdata.Description
 </script>
 
 <div class="bg-[oklch(var(--n))] rounded-xl p-2">
