@@ -1,3 +1,31 @@
+<script lang="ts">
+	import servername from '$lib/data'
+	import toast from 'svelte-french-toast'
+	export let data
+	const getposts = async () => {
+		try {
+			const req = await fetch(servername + '/api/litematica/obj', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					FileID: data.post,
+					Texurepack: 'vanilla'
+				}
+			})
+			if (!req.ok) {
+				toast.error('Failed to make obj')
+				var dd = await req.json()
+				console.error(dd)
+				return
+			}
+			toast.success('Successfully made obj')
+		} catch (e) {
+			console.error(e)
+			toast.error('Failed to make obj')
+		}
+	}
+</script>
+
 <div class="stats shadow">
 	<div class="stat">
 		<div class="stat-figure text-primary">
@@ -35,3 +63,11 @@
 		<div class="stat-value text-secondary">0</div>
 	</div>
 </div>
+<button
+	class="btn"
+	on:click={() => {
+		getposts()
+	}}
+>
+	Make OBJ
+</button>
