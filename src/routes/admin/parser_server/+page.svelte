@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation'
 	import type { PageData } from '$types'
 	export let data: PageData
 	const { servers } = data
@@ -19,7 +20,7 @@
 						<p class="text-base">Port: {server.Port}</p>
 						<p class="text-sm text-base-content/70">ID: {server.ID}</p>
 						<div class="card-actions justify-end mt-4">
-							<button class="btn btn-primary btn-sm">修改</button>
+							<button class="btn btn-primary btn-sm" on:click={() => goto("/admin/parser_server/edit/"+server.ID)}>修改</button>
 						</div>
 					</div>
 				</div>

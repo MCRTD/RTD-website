@@ -1,4 +1,6 @@
 <script lang="ts">
+	import toast from 'svelte-french-toast'
+
 	export let data
 	var downloads = data.postdata.Files.map(
 		(file: { DownloadCount: any }) => file.DownloadCount
@@ -60,7 +62,9 @@
 					<div class="stat-value">{data.postdata.Vote}</div>
 				</div>
 			</div>
-			<button class="btn btn-primary w-20 ml-auto">Vote</button>
+			<button class="btn btn-primary w-20 ml-auto" on:click={() => toast.error('尚未完成')}
+				>Vote</button
+			>
 		</div>
 	</aside>
 </div>
