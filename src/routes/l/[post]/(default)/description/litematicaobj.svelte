@@ -23,7 +23,8 @@
 	})
 	const model = useLoader(OBJLoader, {
 		extend: async (loader) => {
-			loader.setMaterials(await load(objdata.LitematicaObj.MtlFilePath as string))
+			let material = await load(objdata.LitematicaObj.MtlFilePath as string)
+			loader.setMaterials(material)
 		}
 	}).load(objdata.LitematicaObj.ObjFilePath, {
 		transform: (object) => {
