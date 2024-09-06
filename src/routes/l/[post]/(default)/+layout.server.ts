@@ -4,11 +4,7 @@ import servername from '$lib/data'
 export const load: LayoutServerLoad = async ({ params }) => {
 	const getpost = async () => {
 		try {
-			const data = await fetch(servername + '/api/litematica/', {
-				headers: {
-					LitematicaID: params.post
-				}
-			})
+			const data = await fetch(servername + '/api/litematica/?LitematicaID=' + params.post, {})
 			const json = await data.json()
 			return json.servers[0]
 		} catch (e) {
