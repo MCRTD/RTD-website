@@ -7,10 +7,12 @@
 			const req = await fetch(servername + '/api/litematica/obj', {
 				method: 'POST',
 				headers: {
-					'Content-Type': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
 					FileID: data.post,
 					Texurepack: 'vanilla'
-				}
+				})
 			})
 			if (!req.ok) {
 				toast.error('Failed to make obj')
