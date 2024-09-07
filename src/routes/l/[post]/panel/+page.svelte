@@ -2,7 +2,7 @@
 	import servername from '$lib/data'
 	import toast from 'svelte-french-toast'
 	export let data
-	const getposts = async () => {
+	const makeobj = async () => {
 		try {
 			const req = await fetch(servername + '/api/litematica/obj', {
 				method: 'POST',
@@ -10,7 +10,7 @@
 					'Content-Type': 'application/json'
 				},
 				body: JSON.stringify({
-					FileID: data.post,
+					FileID: parseInt(data.post),
 					Texurepack: 'vanilla'
 				})
 			})
@@ -68,7 +68,7 @@
 <button
 	class="btn"
 	on:click={() => {
-		getposts()
+		makeobj()
 	}}
 >
 	Make OBJ
