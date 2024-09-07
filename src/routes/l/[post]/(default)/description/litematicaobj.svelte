@@ -7,7 +7,6 @@
 
 	import * as THREE from 'three'
 	import { T } from '@threlte/core'
-	import { OrbitControls } from '@threlte/extras'
 	import { cameraControls, mesh } from '$lib/stores/stores'
 	import CameraControls from './camera.svelte'
 
@@ -60,7 +59,6 @@
 			$cameraControls = ref
 		}}
 	/>
-	<OrbitControls enableZoom={true} />
 </T.PerspectiveCamera>
 <T.DirectionalLight position={[3, 10, 10]} intensity={1.5} />
 <!-- 增加方向光的強度 -->

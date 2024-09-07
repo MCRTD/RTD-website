@@ -58,17 +58,15 @@
 	export let autoRotateSpeed = 1
 
 	export const ref = new CameraControls($parent as PerspectiveCamera, renderer?.domElement)
-
-	const getControls = () => ref
+	ref.dragToOffset = true
 
 	let disableAutoRotate = false
-
 	useTask(
 		(delta) => {
 			if (autoRotate && !disableAutoRotate) {
-				getControls().azimuthAngle += 4 * delta * DEG2RAD * autoRotateSpeed
+				ref.azimuthAngle += 4 * delta * DEG2RAD * autoRotateSpeed
 			}
-			const updated = getControls().update(delta)
+			const updated = ref.update(delta)
 			if (updated) invalidate()
 		},
 		{
@@ -83,10 +81,7 @@
 	is={ref}
 	on:controlstart={(e) => {
 		disableAutoRotate = true
-    autoRotate = false
-	}}
-	on:zoom={(e) => {
-		console.log('zoomstart', e)
+		autoRotate = false
 	}}
 	on:controlend={() => {
 		disableAutoRotate = false
