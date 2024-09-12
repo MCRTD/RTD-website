@@ -34,19 +34,10 @@
 </script>
 
 <Toaster />
-<div class="app">
+<div class="flex flex-col min-h-screen overflow-x-hidden">
 	<Header user={data.userdata}/>
 
 	<main>
 		<slot />
 	</main>
 </div>
-
-<style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		overflow-x: hidden;
-	}
-</style>

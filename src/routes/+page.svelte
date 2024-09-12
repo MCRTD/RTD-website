@@ -1,19 +1,30 @@
-<script>
-	// @ts-nocheck
-
+<script lang="ts">
 	import Sidebar from './Sidebar.svelte'
 	import Showcard from './showcard.svelte'
 	import { queryParam } from 'sveltekit-search-params'
 
-	export let data
+	export let data: { posts: Promise<PostsData> }
 	const { posts } = data
 
-	const sortstr = {
+	interface PostsData {
+		servers: Array<{
+			ID: number
+			Tags: string
+			vote: number
+			Creators: Array<{ Username: string }>
+			Files: Array<{ DownloadCount: number }>
+		}>
+	}
+	const sortstr: { [key: string]: string } = {
 		newest: '最新上傳',
 		mostvote: '最多投票',
 		mostdownload: '最多下載'
 	}
-	const nowsort = queryParam('sort')
+	const nowsort = queryParam('sort', {
+		defaultValue: 'newest',
+		encode: (value) => value,
+		decode: (value) => value
+	})
 </script>
 
 <svelte:head>
@@ -21,25 +32,27 @@
 	<meta name="description" content="Minecraft Redstone Database" />
 </svelte:head>
 
-<section>
+<section class="flex flex-row max-w-[1300px] mx-auto justify-center">
 	<Sidebar />
-	<div class="mainshow px-4">
-		<div class="join">
+	<div class="mainshow px-4 flex-grow max-w-[1100px]">
+		<div class="join w-full">
 			<input
 				type="text"
 				placeholder="Type here"
-				class="input input-accent input-bordered join-item w-full"
+				class="input input-accent input-bordered join-item flex-grow"
 			/>
 			<button class="btn btn-accent join-item">搜尋</button>
 		</div>
-		<div class="main flex flex-row flex-grow mt-4">
-			<div class="w-[300px] flex-grow">
+		<div class="main flex flex-row mt-4 gap-4">
+			<div class="flex-grow">
 				<div
 					class="flex items-center bg-accent text-[oklch(var(--ac))] radio-sm p-2 rounded-md mb-4 flex-col"
 				>
-					<h1 class="text-4xl">{sortstr[$nowsort]}</h1>
+					<h1 class="text-4xl">{sortstr[$nowsort || 'newest']}</h1>
 				</div>
-				{#await posts then value}
+				{#await posts}
+					<p>Loading...</p>
+				{:then value}
 					<div class="grid xl:grid-cols-2 grid-cols-1 gap-2">
 						{#each value.servers as litematica, i}
 							<div>
@@ -48,12 +61,8 @@
 									tags={litematica.Tags.split(',')}
 									ID={litematica.ID}
 									vote={litematica.vote}
-									author={litematica.Creators.map(
-										(/** @type {{ Username: string; }} */ creator) => creator.Username
-									)}
-									download={litematica.Files.map(
-										(/** @type {{ DownloadCount: number; }} */ file) => file.DownloadCount
-									)}
+									author={litematica.Creators.map((creator) => creator.Username)}
+									download={litematica.Files.map((file) => file.DownloadCount)}
 								/>
 							</div>
 						{/each}
@@ -62,7 +71,7 @@
 					<p>{error.message}</p>
 				{/await}
 			</div>
-			<div class="w-[280px] flex-shrink">
+			<div class="w-[280px] flex-shrink-0">
 				<div class="infocards">
 					<p class="text-lg">這裡是廣告</p>
 					<img
@@ -77,27 +86,6 @@
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: row;
-		align-items: flex-start;
-		max-width: 1300px;
-		margin: 0 auto;
-		justify-content: center;
-		flex: 0.6;
-	}
-
-	.mainshow {
-		width: 600px;
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
-	}
-
-	.main {
-		gap: 1rem;
-	}
-
 	.infocards {
 		display: flex;
 		flex-direction: column;
