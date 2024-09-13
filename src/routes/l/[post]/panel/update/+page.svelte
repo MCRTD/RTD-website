@@ -35,6 +35,7 @@
 				method="POST"
 				use:enhance={({ formData }) => {
 					formData.append('tags', tags.join(','))
+          formData.append('lietmaticaID', data.posts.ID)
 					return async ({ result }) => {
 						await applyAction(result)
 						if (result.type !== 'success') {
@@ -63,16 +64,6 @@
 				</div>
 				<textarea class="textarea textarea-primary" placeholder="Info" name="info" bind:value={md}
 				></textarea>
-				<div class="label">
-					<span class="label-text">檔案</span>
-				</div>
-				<input
-					type="file"
-					name="file"
-					accept=".jpg, .png, .jpeg, .gif,"
-					multiple={true}
-					class="file-input file-input-bordered file-input-primary w-full"
-				/>
 				<div class="label">
 					<span class="label-text">作者的id 使用,分隔</span>
 				</div>
