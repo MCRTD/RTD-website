@@ -1,8 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types'
 	import { applyAction, enhance } from '$app/forms'
-	import toast, { Toaster } from 'svelte-french-toast'
-	import Error from '../../../../+error.svelte'
+	import toast from 'svelte-french-toast'
 
 	export let data: PageData
 </script>
