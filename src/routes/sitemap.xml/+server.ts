@@ -1,14 +1,8 @@
 const site = 'http://localhost:5173'
-const pages: string[] = [
-  "upload",
-  "terms",
-  "privacy",
-  "auth/register",
-  "auth/login",
-]
+const pages: string[] = ['upload', 'terms', 'privacy', 'auth/register', 'auth/login', 'l', 'u']
 
 /** @type {import('./$types').RequestHandler} */
-export async function GET({ url }) {
+export async function GET() {
 	const body = sitemap(pages)
 	const response = new Response(body)
 	response.headers.set('Cache-Control', 'max-age=0, s-maxage=3600')
