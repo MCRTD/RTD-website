@@ -1,4 +1,5 @@
 import tailwindMdBase from '@geoffcodesthings/tailwind-md-base'
+import { addDynamicIconSelectors } from '@iconify/tailwind'
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -44,5 +45,10 @@ export default {
 			'night'
 		]
 	},
-	plugins: [require('daisyui'), require('tailwind-scrollbar'), tailwindMdBase()]
+	plugins: [
+		require('daisyui'),
+		require('tailwind-scrollbar'),
+		tailwindMdBase(),
+    addDynamicIconSelectors()
+	]
 }
