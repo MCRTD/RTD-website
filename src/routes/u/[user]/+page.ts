@@ -1,3 +1,24 @@
-export function load() {
-	return {}
+import servername from '$lib/data.js'
+export function load({params}) {
+  const getuserdata = async () => {
+    const userid = params.user
+		try {
+			const serverdata = await fetch(servername + '/api/user?user=' + userid, {
+				method: 'GET'
+			})
+			if (!serverdata.ok) {
+				throw new Error(`HTTP error! status: ${serverdata.status}`)
+			}
+			const theuser = await serverdata.json()
+      return theuser.Users[0]
+		} catch (e) {
+			console.error(e)
+			throw new Error(`Failed to fetch user`)
+		}
+	}
+	return {
+    props: {
+      user: getuserdata()
+    }
+  }
 }
