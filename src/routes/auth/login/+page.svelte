@@ -24,7 +24,7 @@
 	>
 		<div class="form-control">
 			<label class="label" for="email-input">
-				<span class="label-text">Email</span>
+				<span class="label-text">Username</span>
 			</label>
 			<label class="input input-bordered flex items-center gap-2">
 				<svg
@@ -72,7 +72,13 @@
 		>
 			Register
 		</button>
-		<button type="button" class="btn btn-outline btn-primary">
+		<button
+			type="button"
+			class="btn btn-outline btn-primary"
+			on:click={() => {
+				toast.error('not finish yet')
+			}}
+		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="2em"
@@ -86,7 +92,13 @@
 			>
 			Login
 		</button>
-		<button type="button" class="btn btn-outline btn-primary">
+		<button
+			type="button"
+			class="btn btn-outline btn-primary"
+			on:click={() => {
+				toast.error('not finish yet')
+			}}
+		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="2em"
