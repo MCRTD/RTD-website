@@ -58,7 +58,12 @@
 						<p class="text-lg">{user.Username}</p>
 						<div class="avatar">
 							<div class="w-24 rounded-full">
-								<img src={user.Avatar} alt="avatar" />
+								<img
+									alt="user avatar"
+									src={user.Avatar
+										? user.Avatar
+										: 'https://openclipart.org/download/247319/abstract-user-flat-3.svg'}
+								/>
 							</div>
 						</div>
 						<div class="flex">

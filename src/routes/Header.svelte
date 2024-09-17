@@ -59,7 +59,12 @@
 						<div tabindex="0" role="button" class="btn btn-outline btn-primary">
 							<div class="avatar">
 								<div class="w-10 rounded-full">
-									<img alt="user avatar" src={user.Avatar} />
+									<img
+										alt="user avatar"
+										src={user.Avatar
+											? user.Avatar
+											: 'https://openclipart.org/download/247319/abstract-user-flat-3.svg'}
+									/>
 								</div>
 							</div>
 							<p>用戶名稱</p>
