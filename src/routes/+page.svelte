@@ -7,7 +7,7 @@
 	const { posts } = data
 
 	interface PostsData {
-		servers: Array<{
+		litematicas: Array<{
 			ID: number
 			Tags: string
 			vote: number
@@ -54,7 +54,7 @@
 					<p>Loading...</p>
 				{:then value}
 					<div class="grid xl:grid-cols-2 grid-cols-1 gap-2">
-						{#each value.servers as litematica, i}
+						{#each value.litematicas as litematica, i}
 							<div>
 								<Showcard
 									image="https://pbs.twimg.com/media/GNOM-TkbgAA2OjU?format=jpg&name=small"
