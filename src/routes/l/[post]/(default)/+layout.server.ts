@@ -6,7 +6,7 @@ export const load: LayoutServerLoad = async ({ params }) => {
 		try {
 			const data = await fetch(servername + '/api/litematica/?LitematicaID=' + params.post, {})
 			const json = await data.json()
-			return json.servers[0]
+			return json.litematicas[0]
 		} catch (e) {
 			console.error(e)
 		}
