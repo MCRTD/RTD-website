@@ -1,10 +1,45 @@
 <script lang="ts">
 	import toast from 'svelte-french-toast'
+	import servername from '$lib/data'
 
 	export let data
 	var downloads = data.postdata.Files.map(
 		(file: { DownloadCount: any }) => file.DownloadCount
 	).reduce((acc: number, curr: number) => acc + curr, 0)
+	async function handleVote() {
+		try {
+			const response = await fetch(servername + '/api/litematica/vote', {
+				method: 'POST',
+				credentials: 'include',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					id: data.post
+				})
+			})
+
+			if (response.status === 403) {
+				throw new Error('You need to login to vote')
+			}
+
+			if (!response.ok) {
+				throw new Error('Vote failed')
+			}
+
+			const result = await response.json()
+			console.log(result)
+			if (result.message === 'Vote added') {
+				toast.success('Vote added')
+				data.postdata.Vote += 1
+			} else {
+				toast.success('Vote removed')
+				data.postdata.Vote -= 1
+			}
+		} catch (error) {
+			toast.error((error as Error).message)
+		}
+	}
 </script>
 
 <div class="mx-auto flex flex-row max-w-7xl gap-4">
@@ -62,9 +97,7 @@
 					<div class="stat-value">{data.postdata.Vote}</div>
 				</div>
 			</div>
-			<button class="btn btn-primary w-20 ml-auto" on:click={() => toast.error('尚未完成')}
-				>Vote</button
-			>
+			<button class="btn btn-primary w-20 ml-auto" on:click={handleVote}>Vote</button>
 		</div>
 	</aside>
 </div>

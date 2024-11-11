@@ -10,7 +10,7 @@ export const load = async ({ params }) => {
 					throw new Error(`HTTP error! status: ${data.status}`)
 				}
 				const json = await data.json()
-				return json.servers[0]
+				return json.litematicas[0]
 			} catch (e) {
 				console.error(e)
 				throw new Error(`Failed to fetch posts`)
