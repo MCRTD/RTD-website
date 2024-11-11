@@ -2,18 +2,31 @@
 	import SettingSidebar from '$lib/components/setting_sidebar.svelte'
 	import { page } from '$app/stores'
 
+	const getBaseUrl = (pathname: string) => {
+		// 如果路徑包含 panel，則取到 panel 之前的部分
+		if (pathname.includes('/panel')) {
+			return pathname.split('/panel')[0]
+		}
+		// 否則取到最後一個斜線之前的部分
+		return pathname.split('/').slice(0, -1).join('/')
+	}
+
 	const sidebarNavItems = [
 		{
 			title: 'overview',
-			href: $page.url.pathname.split('/').slice(0, -1).join('/') + '/panel'
+			href: `${getBaseUrl($page.url.pathname)}/panel`
 		},
 		{
 			title: 'edit',
-			href: $page.url.pathname.split('/').slice(0, -1).join('/') + '/panel/update'
+			href: `${getBaseUrl($page.url.pathname)}/panel/update`
 		},
 		{
 			title: 'file',
-			href: $page.url.pathname.split('/').slice(0, -1).join('/') + '/panel/file'
+			href: `${getBaseUrl($page.url.pathname)}/panel/file`
+		},
+		{
+			title: 'image',
+			href: `${getBaseUrl($page.url.pathname)}/panel/image`
 		}
 	]
 </script>
