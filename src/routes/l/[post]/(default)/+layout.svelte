@@ -1,43 +1,23 @@
 <script lang="ts">
 	import toast from 'svelte-french-toast'
-	import servername from '$lib/data'
+	import { enhance } from '$app/forms'
 
 	export let data
 	var downloads = data.postdata.Files.map(
 		(file: { DownloadCount: any }) => file.DownloadCount
 	).reduce((acc: number, curr: number) => acc + curr, 0)
-	async function handleVote() {
-		try {
-			const response = await fetch(servername + '/api/litematica/vote', {
-				method: 'POST',
-				credentials: 'include',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					id: data.post
-				})
-			})
-
-			if (response.status === 403) {
-				throw new Error('You need to login to vote')
-			}
-
-			if (!response.ok) {
-				throw new Error('Vote failed')
-			}
-
-			const result = await response.json()
-			console.log(result)
-			if (result.message === 'Vote added') {
+	function handleVoteResult(result: any) {
+		if (result.type === 'success') {
+      console.log(result.data.data.message);
+			if (result.data?.data.message === 'Vote added') {
 				toast.success('Vote added')
 				data.postdata.Vote += 1
 			} else {
 				toast.success('Vote removed')
 				data.postdata.Vote -= 1
 			}
-		} catch (error) {
-			toast.error((error as Error).message)
+		} else {
+			toast.error(rresult.data?.data.message || 'Operation failed')
 		}
 	}
 </script>
@@ -97,7 +77,20 @@
 					<div class="stat-value">{data.postdata.Vote}</div>
 				</div>
 			</div>
-			<button class="btn btn-primary w-20 ml-auto" on:click={handleVote}>Vote</button>
+			<!-- <button class="btn btn-primary w-20 ml-auto" on:click={handleVote}>Vote</button> -->
+			<form
+				method="POST"
+        action="/l/{data.post}"
+				use:enhance={() => {
+					return async ({ result }) => {
+						handleVoteResult(result)
+					}
+				}}
+			>
+				<!-- 移除 action="?/vote" -->
+				<input type="hidden" name="id" value={data.post} />
+				<button type="submit">Vote</button>
+			</form>
 		</div>
 	</aside>
 </div>
