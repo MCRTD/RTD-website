@@ -8,7 +8,7 @@
 	).reduce((acc: number, curr: number) => acc + curr, 0)
 	function handleVoteResult(result: any) {
 		if (result.type === 'success') {
-      console.log(result.data.data.message);
+      console.log(result.data?.data.message);
 			if (result.data?.data.message === 'Vote added') {
 				toast.success('Vote added')
 				data.postdata.Vote += 1
@@ -17,7 +17,7 @@
 				data.postdata.Vote -= 1
 			}
 		} else {
-			toast.error(rresult.data?.data.message || 'Operation failed')
+			toast.error(result?.data.message || 'Operation failed')
 		}
 	}
 </script>
