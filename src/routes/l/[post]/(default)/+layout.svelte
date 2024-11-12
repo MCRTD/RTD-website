@@ -77,7 +77,6 @@
 					<div class="stat-value">{data.postdata.Vote}</div>
 				</div>
 			</div>
-			<!-- <button class="btn btn-primary w-20 ml-auto" on:click={handleVote}>Vote</button> -->
 			<form
 				method="POST"
         action="/l/{data.post}"
@@ -86,10 +85,10 @@
 						handleVoteResult(result)
 					}
 				}}
+        class="ml-auto"
 			>
-				<!-- 移除 action="?/vote" -->
 				<input type="hidden" name="id" value={data.post} />
-				<button type="submit">Vote</button>
+        <button type="submit" class="btn btn-primary w-20">Vote</button>
 			</form>
 		</div>
 	</aside>
