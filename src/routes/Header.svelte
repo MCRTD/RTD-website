@@ -67,7 +67,7 @@
 									/>
 								</div>
 							</div>
-							<p>用戶名稱</p>
+							<p>{user.Username || "User"}</p>
 						</div>
 						<ul
 							class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
