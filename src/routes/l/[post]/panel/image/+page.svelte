@@ -28,8 +28,9 @@
 		if (!confirm('確定要刪除此圖片？')) return
 
 		try {
-			const response = await fetch(`${servername}/api/litematica/image/${imageId}`, {
-				method: 'DELETE'
+			const response = await fetch(`${servername}/api/litematica/image`, {
+				method: 'DELETE',
+				body: JSON.stringify({ ImageID: imageId })
 			})
 			if (!response.ok) throw new Error('Delete failed')
 			toast.success('圖片刪除成功')
@@ -44,11 +45,11 @@
 	<h1 class="text-2xl font-bold mb-4">圖片管理</h1>
 
 	<div class="carousel w-full h-96 bg-base-200 rounded-box mb-4">
-    <!-- TODO: 尚未確認路由 -->
+		<!-- TODO: 尚未確認路由 -->
 		{#if data.posts.Images && data.posts.Images.length > 0}
 			{#each data.posts.Images as image, i}
 				<div id="slide{i}" class="carousel-item relative w-full">
-					<img src={image.url} class="w-full h-full object-contain" alt="作品圖片 {i + 1}" />
+					<img src={image.ImagePath} class="w-full h-full object-contain" alt="作品圖片 {i + 1}" />
 					<div
 						class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
 					>
