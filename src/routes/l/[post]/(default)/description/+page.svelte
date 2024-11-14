@@ -24,30 +24,22 @@
 				</Canvas>
 			</div>
 		{/if}
-		<div id="item3" class="carousel-item w-full">
-			<img
-				src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
-				class="w-full object-scale-down"
-				alt="litematica"
-			/>
-		</div>
-
-		<div id="item4" class="carousel-item w-full">
-			<img
-				src="https://im.bahamut.com.tw/chatimg%2Faa2b637504f093b18ab7867dab55bf8c.jpeg?alt=media"
-				class="w-full object-scale-down"
-				alt="litematica"
-			/>
-		</div>
+		{#each data.postdata.Images as image, i}
+			<div id="item{i}" class="carousel-item w-full">
+				<img src={image.ImagePath} class="w-full object-scale-down" alt="litematica" />
+			</div>
+		{/each}
 	</div>
 	<div class="flex justify-center w-full py-2 gap-2">
 		{#if data.postdata.Files[0].LitematicaObj.ObjFilePath != ''}
 			<a href="#obj" class="btn btn-xs">1</a>
-			<a href="#item3" class="btn btn-xs">2</a>
-			<a href="#item4" class="btn btn-xs">3</a>
+			{#each data.postdata.Images as image, i}
+				<a href={`#item${i}`} class="btn btn-xs">{i + 2}</a>
+			{/each}
 		{:else}
-			<a href="#item3" class="btn btn-xs">1</a>
-			<a href="#item4" class="btn btn-xs">2</a>
+			{#each data.postdata.Images as image, i}
+				<a href={`#item${i}`} class="btn btn-xs">{i + 1}</a>
+			{/each}
 		{/if}
 	</div>
 	<div class="markdown">

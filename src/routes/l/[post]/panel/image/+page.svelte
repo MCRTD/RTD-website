@@ -30,6 +30,7 @@
 		try {
 			const response = await fetch(`${servername}/api/litematica/image`, {
 				method: 'DELETE',
+				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ ImageID: imageId })
 			})
 			if (!response.ok) throw new Error('Delete failed')
@@ -45,36 +46,46 @@
 	<h1 class="text-2xl font-bold mb-4">圖片管理</h1>
 
 	<div class="carousel w-full h-96 bg-base-200 rounded-box mb-4">
-		<!-- TODO: 尚未確認路由 -->
 		{#if data.posts.Images && data.posts.Images.length > 0}
 			{#each data.posts.Images as image, i}
-				<div id="slide{i}" class="carousel-item relative w-full">
+				<div id="slide{i}" class="carousel-item relative w-full group">
 					<img src={image.ImagePath} class="w-full h-full object-contain" alt="作品圖片 {i + 1}" />
 					<div
-						class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
+						class="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
 					>
-						<a href="#slide{i === 0 ? data.posts.Images.length - 1 : i - 1}" class="btn btn-circle"
-							>❮</a
+						<a
+							href="#slide{i === 0 ? data.posts.Images.length - 1 : i - 1}"
+							class="btn btn-circle bg-base-200 bg-opacity-50 hover:bg-opacity-75"
 						>
-						<button class="btn btn-error btn-circle" on:click={() => handleImageDelete(image.ID)}>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								class="h-6 w-6"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
+							❮
+						</a>
+						<div class="absolute top-4 right-4">
+							<button
+								class="btn btn-error btn-circle btn-sm bg-opacity-70 hover:bg-opacity-50"
+								on:click={() => handleImageDelete(image.ID)}
 							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M6 18L18 6M6 6l12 12"
-								/>
-							</svg>
-						</button>
-						<a href="#slide{i === data.posts.Images.length - 1 ? 0 : i + 1}" class="btn btn-circle"
-							>❯</a
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									class="h-4 w-4"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M6 18L18 6M6 6l12 12"
+									/>
+								</svg>
+							</button>
+            </div>
+						<a
+							href="#slide{i === data.posts.Images.length - 1 ? 0 : i + 1}"
+							class="btn btn-circle bg-base-200 bg-opacity-50 hover:bg-opacity-75"
 						>
+							❯
+						</a>
 					</div>
 				</div>
 			{/each}
