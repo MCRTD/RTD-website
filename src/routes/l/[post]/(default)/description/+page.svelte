@@ -16,17 +16,17 @@
 </script>
 
 <div class="bg-[oklch(var(--n))] rounded-xl p-2">
-	<div class="carousel w-full max-h-[500px] h-full">
+	<div class="carousel w-full max-h-[500px] h-full overflow-hidden">
 		{#if data.postdata.Files[0].LitematicaObj.ObjFilePath != ''}
-			<div id="obj" class="carousel-item w-full">
+			<div id="obj" class="carousel-item w-full relative">
 				<Canvas>
 					<Obj objdata={data.postdata.Files[0]} />
 				</Canvas>
 			</div>
 		{/if}
 		{#each data.postdata.Images as image, i}
-			<div id="item{i}" class="carousel-item w-full">
-				<img src={image.ImagePath} class="w-full object-scale-down" alt="litematica" />
+			<div id="item{i}" class="carousel-item w-full relative">
+				<img src={image.ImagePath} class="w-full h-full object-contain mx-auto" alt="litematica" />
 			</div>
 		{/each}
 	</div>

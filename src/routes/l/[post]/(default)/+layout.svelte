@@ -8,7 +8,7 @@
 	).reduce((acc: number, curr: number) => acc + curr, 0)
 	function handleVoteResult(result: any) {
 		if (result.type === 'success') {
-      console.log(result.data?.data.message);
+			console.log(result.data?.data.message)
 			if (result.data?.data.message === 'Vote added') {
 				toast.success('Vote added')
 				data.postdata.Vote += 1
@@ -22,8 +22,8 @@
 	}
 </script>
 
-<div class="mx-auto flex flex-row max-w-7xl gap-4">
-	<div class="flex flex-grow flex-col w-[600px] px-4">
+<div class="mx-auto flex flex-col lg:flex-row max-w-7xl gap-4 px-4 lg:px-0">
+	<div class="flex flex-grow flex-col w-full lg:w-[600px] lg:px-4">
 		<div class="card bg-[oklch(var(--n))] rounded-xl mb-4">
 			<ul class="menu menu-horizontal">
 				<li><a href="/l/{data.post}/description">Description</a></li>
@@ -32,10 +32,9 @@
 		</div>
 		<slot />
 	</div>
-	<aside>
-		<div
-			class="w-80 flex flex-col flex-shrink bg-[oklch(var(--n))] rounded-xl p-4 text-[oklch(var(--nc))] mb-4"
-		>
+
+	<aside class="w-full lg:w-80">
+		<div class="bg-[oklch(var(--n))] rounded-xl p-4 text-[oklch(var(--nc))] mb-4">
 			<h2 class="text-lg font-bold mb-4">creator</h2>
 			{#each data.postdata.Creators as creator}
 				<div class="flex items-center mb-2">
@@ -63,10 +62,8 @@
 				<p>in process...</p>
 			</div>
 		</div>
-		<div
-			class="flex flex-col flex-shrink bg-[oklch(var(--n))] rounded-xl p-4 text-[oklch(var(--nc))]"
-		>
-			<div class="stats stats-vertical bg-[oklch(var(--n))]">
+		<div class="bg-[oklch(var(--n))] rounded-xl p-4 text-[oklch(var(--nc))]">
+			<div class="stats stats-vertical bg-[oklch(var(--n))] w-full">
 				<div class="stat p-2">
 					<div class="stat-title">Downloads</div>
 					<div class="stat-value">{downloads}</div>
@@ -79,16 +76,16 @@
 			</div>
 			<form
 				method="POST"
-        action="/l/{data.post}"
+				action="/l/{data.post}"
 				use:enhance={() => {
 					return async ({ result }) => {
 						handleVoteResult(result)
 					}
 				}}
-        class="ml-auto"
+				class="flex justify-end"
 			>
 				<input type="hidden" name="id" value={data.post} />
-        <button type="submit" class="btn btn-primary w-20">Vote</button>
+				<button type="submit" class="btn btn-primary w-20">Vote</button>
 			</form>
 		</div>
 	</aside>
