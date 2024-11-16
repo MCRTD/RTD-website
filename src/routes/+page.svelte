@@ -64,6 +64,10 @@
 							</div>
 						{/each}
 					</div>
+          <div class="flex flex-col items-center justify-center py-8 bg-gradient-to-t from-base-300 to-transparent">
+            <p class="text-lg font-medium text-base-content/80 mb-2">到底啦</p>
+            <div class="h-20"></div>
+          </div>
 				{/await}
 			</div>
 		</div>
