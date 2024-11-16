@@ -16,7 +16,7 @@
 </script>
 
 <div class="bg-[oklch(var(--n))] rounded-xl p-2">
-	<div class="carousel w-full max-h-[500px]">
+	<div class="carousel w-full max-h-[500px] h-full">
 		{#if data.postdata.Files[0].LitematicaObj.ObjFilePath != ''}
 			<div id="obj" class="carousel-item w-full">
 				<Canvas>

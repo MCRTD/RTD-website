@@ -10,7 +10,7 @@
 </script>
 
 <div
-	class="flex flex-col items-center bg-[var(--bg-200)] rounded-lg p-4 text-white glow"
+	class="flex flex-col items-center bg-[var(--bg-200)] rounded-lg p-4 text-white glow h-[400px]"
 	on:click={() => goto(`/l/${ID}`)}
 	on:keydown={(e) => e.key === 'Enter' && goto(`/l/${ID}`)}
 	tabindex="0"
@@ -18,12 +18,14 @@
 	aria-label="PANIC!"
 >
 	<div class="flex-1">
-		<img src={image} alt="Litematica" class="object-cover max-h-60" />
+		<img src={image} alt="Litematica" class="w-full object-cover rounded-lg h-[250px]" />
 	</div>
 	<div class="w-full">
-		{#each tags as tag}
-			<div class="badge badge-info mr-1">{tag}</div>
-		{/each}
+		{#if tags.length > 0}
+			{#each tags as tag}
+				<div class="badge badge-info mr-1">{tag}</div>
+			{/each}
+		{/if}
 	</div>
 	<div class="w-full">
 		<p>Author: {author.join(', ')}</p>

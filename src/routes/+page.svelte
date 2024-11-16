@@ -13,6 +13,7 @@
 			vote: number
 			Creators: Array<{ Username: string }>
 			Files: Array<{ DownloadCount: number }>
+      Images: Array<{ ImagePath: string }>
 		}>
 	}
 	const sortstr: { [key: string]: string } = {
@@ -53,7 +54,7 @@
 						{#each value.litematicas as litematica, i}
 							<div>
 								<Showcard
-									image="https://pbs.twimg.com/media/GNOM-TkbgAA2OjU?format=jpg&name=small"
+                  image={litematica?.Images[0]?.ImagePath || 'https://pbs.twimg.com/media/GNOM-TkbgAA2OjU?format=jpg&name=small'}
 									tags={litematica.Tags.split(',')}
 									ID={litematica.ID}
 									vote={litematica.vote}
@@ -120,7 +121,7 @@
 						{#each value.litematicas as litematica, i}
 							<div>
 								<Showcard
-									image="https://pbs.twimg.com/media/GNOM-TkbgAA2OjU?format=jpg&name=small"
+									image={litematica?.Images[0]?.ImagePath || 'https://pbs.twimg.com/media/GNOM-TkbgAA2OjU?format=jpg&name=small'}
 									tags={litematica.Tags.split(',')}
 									ID={litematica.ID}
 									vote={litematica.vote}
