@@ -13,6 +13,17 @@
 	]
 	export let data
 	let md = data.postdata.Description
+	const goTo = (event: Event) => {
+		event.preventDefault()
+		const btn = event.currentTarget as HTMLSelectElement
+		const carousel = document.querySelector('.carousel')
+		const href = btn.getAttribute('href')!
+		if (carousel) {
+			const target = carousel.querySelector<HTMLDivElement>(href)!
+			const left = target.offsetLeft
+			carousel.scrollTo({ left: left })
+		}
+	}
 </script>
 
 <div class="bg-[oklch(var(--n))] rounded-xl p-2">
@@ -32,13 +43,15 @@
 	</div>
 	<div class="flex justify-center w-full py-2 gap-2">
 		{#if data.postdata.Files[0].LitematicaObj.ObjFilePath != ''}
-			<a href="#obj" class="btn btn-xs">1</a>
+			{#if data.postdata.Images.length > 0}
+				<a href="#obj" class="btn btn-xs">1</a>
+			{/if}
 			{#each data.postdata.Images as image, i}
-				<a href={`#item${i}`} class="btn btn-xs">{i + 2}</a>
+				<a href={`#item${i}`} class="btn btn-xs" on:click={goTo}>{i + 2}</a>
 			{/each}
 		{:else}
 			{#each data.postdata.Images as image, i}
-				<a href={`#item${i}`} class="btn btn-xs">{i + 1}</a>
+				<a href={`#item${i}`} class="btn btn-xs" on:click={goTo}>{i + 1}</a>
 			{/each}
 		{/if}
 	</div>
