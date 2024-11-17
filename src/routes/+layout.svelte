@@ -33,9 +33,17 @@
 	}
 </script>
 
+<svelte:head>
+	<script
+		defer
+		src="https://cloud.umami.is/script.js"
+		data-website-id="786a5f0c-248c-4130-a561-474a3ca4f151"
+	></script>
+</svelte:head>
+
 <Toaster />
 <div class="flex flex-col min-h-screen overflow-x-hidden">
-	<Header user={data.userdata}/>
+	<Header user={data.userdata} />
 
 	<main>
 		<slot />
