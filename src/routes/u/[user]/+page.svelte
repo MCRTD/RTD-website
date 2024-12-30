@@ -98,6 +98,32 @@
 					</div>
 				</div>
 			</div>
+		{:catch error}
+			<div class="main flex flex-row mt-4 gap-4">
+				<div class="w-[280px] flex-shrink-0">
+					<div class="infocards">
+						<div class="skeleton h-4 w-28 mb-2"></div>
+						<div class="skeleton w-24 h-24 rounded-full mb-2"></div>
+						<div class="flex gap-2 mb-2">
+							{#each Array(3) as _}
+								<div class="skeleton w-8 h-8 rounded-full"></div>
+							{/each}
+						</div>
+						<div class="skeleton h-4 w-20 mb-2"></div>
+						<div class="skeleton h-4 w-16"></div>
+					</div>
+				</div>
+				<div class="flex-grow">
+					<div class="grid xl:grid-cols-2 grid-cols-1 gap-2">
+						{#each Array(4) as _}
+							<div class="skeleton h-28 w-full"></div>
+						{/each}
+					</div>
+				</div>
+			</div>
+			<div class="flex-grow">
+					<p>{error.message}</p>
+			</div>
 		{/await}
 	</div>
 </section>
